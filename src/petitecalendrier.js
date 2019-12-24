@@ -26,7 +26,7 @@ class Tiny extends Component{
     render(){
         return(
             <div>
-                <IconSettings>
+                <IconSettings iconPath="/icons">
                 <Datepicker 
                 //customInput={!this.state.isHidden}
                 />
@@ -37,5 +37,4 @@ class Tiny extends Component{
     }
 }
 
-//ReactDOM.render(<Tiny/>, document.getElementById('test'));
 export default Tiny;

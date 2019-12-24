@@ -1,3 +1,8 @@
 .grand-semaine{
     margin-left: 20%;
+    background-color:violet;
 }
+
+ .slds-grid, .slds-gutters{
+    slds-gutters_medium: 32px;
+ }

@@ -9,7 +9,7 @@ class Index extends Component{
         return(
             <div>
                 <div>{<Tiny/>}</div>
-                <div>{<Big />}</div>
+                <div>{<Big/>}</div>
                 <div>{<Temps/>}</div>
                
             </div>

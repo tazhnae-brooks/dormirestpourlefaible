@@ -19,7 +19,7 @@ import './style.css';
 );*/
 //Grid.displayName = DataTableCell.displayName;
 
-const columns = [
+/*const columns = [
     //try in a seperate table <DataTableColumn key="cic" label="CIC Rôle" property="roles"/>,
 
 	<DataTableColumn
@@ -27,8 +27,8 @@ const columns = [
 		label="Lundi"
 		property="weekDay"
 	>
-		{/*<Grid />*/}
-	</DataTableColumn>,
+		{/*<Grid />*/
+	/*</DataTableColumn>,
 
 	<DataTableColumn key="day2" label="Mardi" property="weekDay2" />,
 
@@ -43,10 +43,10 @@ const columns = [
 	<DataTableColumn key="day7" label="Dimanche" property="weekDay7" />,
 
 	
-];
+];*/
 
 class Big extends Component {
-	static displayName = 'calendar';
+	/*static displayName = 'calendar';
 
 	state = {
 		row: [
@@ -54,7 +54,7 @@ class Big extends Component {
 				id: '5GJOOOPWU7',
                 roles:"multi ic",
 			},*/
-			{
+			/*{
 				id: '8IKZHZZV80',
 				weekDay: '1',
 				weekDay2: '2',
@@ -85,17 +85,46 @@ class Big extends Component {
 				contact: '',
 			},
 		],
-	};
+	};*/
 
 	render() {
 		return (
-			<IconSettings iconPath="/assets/icons">
-				<div className="grand-semaine">
-					<DataTable columnBordered items={this.state.row} id="calendar-columnBordered">
-						{columns}
-					</DataTable>
+			<div className="grand-semaine">
+				<div class="slds-grid slds-gutters">
+					<div class="slds-col slds-size_1-of-12">
+						<span>1</span>
+					</div>
+					<div class="slds-col slds-size_1-of-12">
+						<span>2</span>
+					</div>
+					<div class="slds-col slds-size_1-of-12">
+						<span>3</span>
+					</div>
+					<div class="slds-col slds-size_1-of-12">
+						<span>4</span>
+					</div>
+					<div class="slds-col slds-size_1-of-12">
+						<span>5</span>
+					</div>
+					<div class="slds-col slds-size_1-of-12">
+						<span>6</span>
+					</div>
+					<div class="slds-col slds-size_1-of-12">
+						<span>7</span>
+					</div>
 				</div>
-			</IconSettings>
+			</div>
+			/*<IconSettings iconPath="/icons">
+				<div class="slds-grid slds-gutters">
+					<div class="slds-col">
+						<div className="grand-semaine">
+							<DataTable columnBordered items={this.state.row} id="calendar-columnBordered">
+								{columns}
+							</DataTable>
+						</div>
+					</div>
+				</div>
+			</IconSettings>*/
 		);
 	}
 }
