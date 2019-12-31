@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Big from './grandsemaine.js';
-import Temps from './temps.js'
+import Roles from './cicrole.js';
+import Temps from './temps.js';
 import Tiny from './petitecalendrier.js';
-//import {Datepicker} from '@salesforce/design-system-react';
+import Big from './grandsemaine.js';
+import Names from './names.js';
+
 class Index extends Component{
     render(){
         return(
             <div>
-                <div>{<Tiny/>}</div>
+                {/* <div>{<Tiny/>}</div>
+                <div className="border"></div>
                 <div>{<Big/>}</div>
+                <br/>
+                <div>{<Roles/>}</div>
                 <div>{<Temps/>}</div>
-               
+                */}
+                <Tiny />
+                <Temps/>
+                <div className="border"></div>
+                <Big/>
+                <br/>
+                <Roles/>
+                <Names/>
             </div>
         )
     }

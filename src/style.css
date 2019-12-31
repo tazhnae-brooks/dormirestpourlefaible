@@ -1,8 +1,32 @@
 .grand-semaine{
-    margin-left: 20%;
-    background-color:violet;
+    margin-left: 12%;
+}
+.roles{
+    margin-left: 12%;
+
+}
+.petitecalendrier{
+    margin-right: 80%;
+    display: block;
 }
 
- .slds-grid, .slds-gutters{
-    slds-gutters_medium: 32px;
+.namedp{
+    display: block;
+    padding-top: 200px;
+
+}
+
+.temps{
+    display: block;
+    /* padding-right: 30px; */
+    margin-left: 18.9%;
+}
+
+ .border{
+    border-left: 8px solid black;
+    height: 1450px;
+  position: absolute;
+  left: 18.6%;
+  margin-right: 30px;
+  top: 0;
  }
