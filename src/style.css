@@ -16,11 +16,16 @@
 
 }
 
+element {
+    white-space: pre;
+}
 .temps{
-    display: block;
+    /* display: block; */
     /* padding-right: 30px; */
     margin-left: 18.9%;
+
 }
+
 
  .border{
     border-left: 8px solid black;
