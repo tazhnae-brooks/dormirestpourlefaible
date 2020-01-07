@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 import Day from './day';
 
-import DateUtil from '../../../utilities/date';
+import DateUtil from './utilities/date';
 
 const DatepickerWeek = (props) => {
 	const days = [];
 	let date = props.firstDayOfWeek;
 
-	// eslint-disable-next-line fp/no-loops
+		// deleted comment here
 	for (let i = 0; i < 7; i += 1) {
-		// eslint-disable-next-line fp/no-mutating-methods
+		// deleted comment here
 		days.push(
 			<Day
 				calendarHasFocus={props.calendarHasFocus}
 				date={date}
-				disabled={props.dateDisabled({ date })}
+				disabled={props.dateDisabled({date})}
 				focusedDate={props.focusedDate}
 				initialDateForCalendarRender={props.initialDateForCalendarRender}
 				key={date.toString()}

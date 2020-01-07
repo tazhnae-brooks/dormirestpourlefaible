@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+// import moment from 'react-moment'
 import {IconSettings} from '@salesforce/design-system-react';
 import {Datepicker} from '@salesforce/design-system-react';
-
+import './style.css'
 
 class Tiny extends Component{
 
@@ -11,8 +12,15 @@ class Tiny extends Component{
                 <IconSettings iconPath="/icons">
                     <Datepicker 
                         // disabled
-                        isOpen   
+                        isOpen
                     />
+                    {/* <Datepicker 
+                    
+                    formatter={(date) => {
+						return date ? moment(date).format('dddd') : '';
+					}}
+                    
+                    /> */}
                </IconSettings>
               </div>
         );

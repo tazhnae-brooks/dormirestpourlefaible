@@ -1,13 +1,15 @@
 import React,{Component} from 'react';
+import Moment from 'react-moment';
+import {Button} from '@salesforce/design-system-react';
 import {DataTable} from '@salesforce/design-system-react'; 
 import {DataTableColumn} from '@salesforce/design-system-react';
 import {DataTableCell} from '@salesforce/design-system-react';
 import {IconSettings} from '@salesforce/design-system-react';
 import './style.css';
 
-// 12/31/19 note: test datepicker week.jsx file by importing all necessary files
 
 //week template
+
 const template=[
 	<DataTableColumn
 		key="day1"
@@ -32,9 +34,40 @@ const template=[
 	<DataTableColumn key="day7" label="Dimanche" property="weekDay7" width="20em"  />,
 ]
 
+Moment.globalFormat = "MMMM DD, YYYY" // January 2020
 class Big extends Component {
-	static displayName = 'weektemplate';
+	constructor(props) {
+        super(props);
+        this.state = {
+            month: <Moment></Moment>
+        };
+        this.monthOffset = 0
+        this.previousMonth = this.previousMonth.bind(this);
+        this.nextMonth = this.nextMonth.bind(this);
+	}
+	
+	componentDidMount() {
+        this.setState(() => ({
+            month: <Moment>{new Date()}</Moment>
+        }));
+	}
+	
+	previousMonth() {
+        this.monthOffset--
+        this.setState(state => ({
+            month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>
+        }));
+    }
 
+
+    nextMonth() {
+        this.monthOffset++
+        this.setState(state => ({
+            month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>
+        }));
+    }
+
+	static displayName = 'weektemplate';
 	state = {
 		row: [
             
@@ -58,22 +91,16 @@ class Big extends Component {
 			// 	weekDay6: '6',
 			// 	weekDay7: '7',*/
 			// },
-			// {
-			// 	id: '8IKZHZZV81',
-			// 	weekDay:'15'
-			// 	/*weekDay2: '2',
-			// 	weekDay3: '3',
-			// 	weekDay4: '4',
-			// 	weekDay5: '5',
-			// 	weekDay6: '6',
-			// 	weekDay7: '7',*/
-			// },
 		],
 	};
 
 	render() {
 		return (
 			<div className="grand-semaine">
+				<h1>{this.state.month}</h1>
+				< Button onClick={this.previousMonth}>Previous</Button>
+				< Button onClick={this.nextMonth}>Next</Button>
+                
 				<IconSettings iconPath="/icons">
 				<div class="slds-grid slds-gutters">
 					<div class="slds-col">
@@ -82,7 +109,7 @@ class Big extends Component {
 							columnBordered 
 							items={this.state.row} 
 							id="weektemplate-columnBordered"
-							
+							noRowHover
 							>
 							{template}
 							</DataTable>

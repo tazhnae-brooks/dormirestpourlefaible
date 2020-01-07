@@ -1,28 +1,31 @@
 .grand-semaine{
-    margin-left: 12%;
+    margin-left: 50%;
+    /* display: inline-block; */
 }
 .roles{
     margin-left: 12%;
-
 }
 .petitecalendrier{
     margin-right: 80%;
-    display: block;
+    /* display: block; */
 }
 
 .namedp{
-    display: block;
-    padding-top: 200px;
+    display: inline-block;
+    /* padding-top: 100px; */
+    margin-top: 300px;
+    /* width: 250px; */
+    /* height: 100px; */
 
 }
 
-element {
+/* element {
     white-space: pre;
-}
+} */
 .temps{
     /* display: block; */
     /* padding-right: 30px; */
-    margin-left: 18.9%;
+    margin-left: 19.5%;
 
 }
 

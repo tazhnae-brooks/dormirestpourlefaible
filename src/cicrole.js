@@ -5,19 +5,32 @@ import {DataTableCell} from '@salesforce/design-system-react';
 import {IconSettings} from '@salesforce/design-system-react';
 import './style.css';
 
-/*const Grid = ({ children, ...props }) => (
-	<DataTableCell {...props}>
-		<a
-			href="javascript:void(0);"
-			onClick={(event) => {
-				event.preventDefault();
-			}}
-		>
-			{children}
-		</a>
+
+// const Grid = ({ children, ...props }) => (
+// 	<DataTableCell {...props}>
+// 				<a
+// 			href="javascript:void(0);"
+// 			onClick={(event) => {
+// 				event.preventDefault()
+				
+// 			}}
+// 		>
+// 			{children}
+// 		</a>
+// 	</DataTableCell>
+// );
+// Grid.displayName = DataTableCell.displayName;
+
+const Input =({ ...props}) => (
+	<DataTableCell  {...props}>
+
+
 	</DataTableCell>
-);*/
-//Grid.displayName = DataTableCell.displayName;
+
+)
+
+Input.displayName = DataTableCell.displayName;
+
 
 
 //role table
@@ -30,7 +43,7 @@ const columns = [
 		property="multiIC"
 		width="20em"
 	>
-		{/*<Grid />*/}
+		<Input />
 	</DataTableColumn>,
 	
 
@@ -53,47 +66,104 @@ const columns = [
 ];
 
 class Role extends Component {
+
+	handleChanged = (event, data) => {
+		this.setState({ 
+			selectedInput: data.selection 
+		});
+		console.log(event, data);
+	};
+
+	
 	static displayName = 'roles';
 
 	state = {
 		row: [
-            
-			{
-				id: '8IKZHZZV80',
-				multiIC:"name",
-				bo:'.',
-				lno:'.',
-				scribe:'.',
-				singleic:'.',
-				exec:'.',
-				uc:'.',
-				ecomm:'.',
-				
-			},
-			{
-				id: '5GJOOOPWU7',
-				multiIC:".",
-				bo:'.',
-				lno:'.',
-				scribe:'.',
-				singleic:'.',
-				exec:'.',
-				uc:'.',
-				ecomm:'.',
-				
-			},
-			{
-				id: '8IKZHZZV81',
-				multiIC:".",
-				bo:'.',
-				lno:'.',
-				scribe:'.',
-				singleic:'.',
-				exec:'.',
-				uc:'.',
-				ecomm:'.',
-				
-			},
+            {id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '5GJOOOPWU7', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
+
+			{id: '8IKZHZZV81', multiIC:".", bo:'.', lno:'.', scribe:'.', singleic:'.', exec:'.', uc:'.', ecomm:'.'},
 		],
 	};
 
@@ -103,8 +173,13 @@ class Role extends Component {
 				<IconSettings iconPath="/icons">
 				<div class="slds-grid slds-gutters">
 					<div class="slds-col">
-						<div className="grand-semaine">
-							<DataTable columnBordered items={this.state.row} id="roles-columnBordered">
+						<div className="roles">
+							<DataTable 
+							columnBordered items={this.state.row}
+							id="roles-columnBordered"
+							joined
+							noRowHover
+							>
 								{columns}
 							</DataTable>
 						</div>

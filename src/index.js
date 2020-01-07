@@ -21,9 +21,10 @@ class Index extends Component{
                 <Temps/>
                 <div className="border"></div>
                 <Big/>
+                <Names/>
                 <br/>
                 <Roles/>
-                <Names/>
+                {/* <Names/> */}
             </div>
         )
     }

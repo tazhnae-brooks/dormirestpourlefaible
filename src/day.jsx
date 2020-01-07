@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 // joining classNames together."
 import classNames from 'classnames';
 
-import EventUtil from '../../../utilities/event';
-import DateUtil from '../../../utilities/date';
-import KEYS from '../../../utilities/key-code';
+import EventUtil from './utilities/event';
+import DateUtil from './utilities/date';
+import KEYS from './utilities/key-code';
 
-import { DIRECTIONS } from '../../utilities/UNSAFE_direction';
-import LanguageDirection from '../../utilities/UNSAFE_direction/private/language-direction';
+import { DIRECTIONS } from './utilities/UNSAFE_direction';
+import LanguageDirection from './utilities/UNSAFE_direction/private/language-direction';
 
 const handleClick = (event, { date, onSelectDate }) => {
 	onSelectDate(event, { date });

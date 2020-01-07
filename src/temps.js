@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import {Dropdown} from '@salesforce/design-system-react';
 import {IconSettings} from '@salesforce/design-system-react';
+import './style.css'
 
 
-var roleoptions= [
-		{ label: 'UTC', type: 'header'},
-		{ label: 'time', value: '0:30' },
-		{ label: 'time', value: '1:30' },
+const roleoptions= [
+		{label: 'UTC', type: 'header'},
+		{ label: 'time', value: '0:30 1:30' },
+		{ label: 'time', value: '2:30' },
 		// { type: 'divider' },
 		// { label: 'Eastern', type: 'header'},
 		// { label: 'Menu Item Six', value: 'F0' },
 		// { label: 'Menu Item Seven', value: 'G0' },
 ]
-// Element.textContent = roleoptions.join('\n')
 
 class Temps extends Component{
 	constructor(props){
@@ -42,16 +42,13 @@ class Temps extends Component{
 							iconVariant="border-filled"
 							onSelect={(selected) => {
 								this.handleSelectChange(selected.value);
-								Element.textContent = roleoptions.join('\n')
 							}}
 							options={roleoptions}
 				/>
-				
+				<br/>
 				{this.state.selectedValue}
-
 		</IconSettings>
-			</div>			
-            
+			</div>	
         );
     }
 }
