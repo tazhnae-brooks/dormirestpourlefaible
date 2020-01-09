@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import {Button} from '@salesforce/design-system-react';
 import {DataTable} from '@salesforce/design-system-react'; 
 import {DataTableColumn} from '@salesforce/design-system-react';
-import {DataTableCell} from '@salesforce/design-system-react';
+// import {DataTableCell} from '@salesforce/design-system-react';
 import {IconSettings} from '@salesforce/design-system-react';
 import './style.css';
 
