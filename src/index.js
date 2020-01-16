@@ -6,28 +6,26 @@ import Tiny from './petitecalendrier.js';
 import Big from './grandsemaine.js';
 import Names from './names.js';
 
-class Index extends Component{
-    render(){
-        return(
-            <div>
-                {/* <div>{<Tiny/>}</div>
+class Index extends Component {
+    render() {
+        return (
+
+            <div class="slds-grid slds-wrap" >
+                <div class="slds-col slds-size_1-of-4">
+                    <div className="picker"><Tiny /></div>
+                    <div>
+                    </div>
+                    <Names />
+                </div>
                 <div className="border"></div>
-                <div>{<Big/>}</div>
-                <br/>
-                <div>{<Roles/>}</div>
-                <div>{<Temps/>}</div>
-                */}
-                <Tiny />
-                <Temps/>
-                <div className="border"></div>
-                <Big/>
-                <Names/>
-                <br/>
-                <Roles/>
-                {/* <Names/> */}
+                <div class="slds-col slds-size_3-of-4">
+                    <Temps />
+                    <Big />
+                    <Roles />
+                </div>
             </div>
         )
     }
 }
 
-ReactDOM.render(<Index/>, document.getElementById('root'));
+ReactDOM.render(<Index />, document.getElementById('root'));

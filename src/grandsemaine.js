@@ -81,16 +81,16 @@ class Big extends Component {
 				weekDay6: '6',
 				weekDay7: '7',
 			},
-			// {
-			// 	id: '5GJOOOPWU7',
-			// 	weekDay: '8',
-			// 	/*weekDay2: '2',
-			// 	weekDay3: '3',
-			// 	weekDay4: '4',
-			// 	weekDay5: '5',
-			// 	weekDay6: '6',
-			// 	weekDay7: '7',*/
-			// },
+			{
+				id: '5GJOOOPWU7',
+				weekDay: '8',
+				/*weekDay2: '2',
+				weekDay3: '3',
+				weekDay4: '4',
+				weekDay5: '5',
+				weekDay6: '6',
+				weekDay7: '7',*/
+			},
 		],
 	};
 
@@ -102,8 +102,8 @@ class Big extends Component {
 				< Button onClick={this.nextMonth}>Next</Button>
                 
 				<IconSettings iconPath="/icons">
-				<div class="slds-grid slds-gutters">
-					<div class="slds-col">
+				{/* <div class="slds-grid slds-gutters">
+					<div class="slds-col"> */}
 						<div className="grand-semaine">
 							<DataTable 
 							columnBordered 
@@ -114,8 +114,8 @@ class Big extends Component {
 							{template}
 							</DataTable>
 						</div>
-					</div>
-				</div>
+					{/* </div>
+				</div> */}
 				</IconSettings>
 			</div>
 		);

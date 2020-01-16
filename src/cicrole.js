@@ -177,7 +177,7 @@ class Role extends Component {
 							<DataTable 
 							columnBordered items={this.state.row}
 							id="roles-columnBordered"
-							noRowHover
+							// noRowHover
 							>
 								{columns}
 							</DataTable>

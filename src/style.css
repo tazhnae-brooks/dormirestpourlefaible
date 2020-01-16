@@ -1,45 +1,38 @@
-.grand-semaine{
+/* .grand-semaine{
     margin-left: 50%;
-    /* display: inline-block; */
 }
-
 .roles{
     margin-left: 12%;
     padding-bottom: 100px;
     overflow: hidden;
-    /* display: inline-block; */
-    /* width: 32in; */
-}
+     
+} 
 
 .petitecalendrier{
     margin-right: 80%;
-    /* display: block; */
 }
 
 .namedp{
     display: inline-block;
-    /* padding-top: 100px; */
     margin-top: 300px;
-    /* width: 250px; */
-    /* height: 100px; */
-
+    
 }
 
-/* element {
-    white-space: pre;
-} */
+
 .temps{
-    /* display: block; */
-    /* padding-right: 30px; */
+    
     margin-left: 19.5%;
 
+}  */
+.picker {
+    height: 25rem;
 }
 
-.border{
+.border {
     border-left: 8px solid black;
     height: 1450px;
     position: absolute;
-    left: 18.6%;
-    margin-right: 30px;
+    /* left: 18.6%; */
+    /* margin-right: 30px; */
     top: 0;
- }
+}
