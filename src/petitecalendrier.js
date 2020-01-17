@@ -12,16 +12,9 @@ class Tiny extends Component {
             <div>
                 <IconSettings iconPath="/icons">
                     <Datepicker
-                    // disabled
-                    // isOpen
+                        isOpen
                     />
-                    {/* <Datepicker 
-                    
-                    formatter={(date) => {
-						return date ? moment(date).format('dddd') : '';
-					}}
-                    
-                    /> */}
+
                 </IconSettings>
             </div>
         );

@@ -1,38 +1,21 @@
-/* .grand-semaine{
-    margin-left: 50%;
-}
-.roles{
-    margin-left: 12%;
-    padding-bottom: 100px;
-    overflow: hidden;
-     
-} 
-
-.petitecalendrier{
-    margin-right: 80%;
-}
-
-.namedp{
-    display: inline-block;
-    margin-top: 300px;
-    
-}
-
-
-.temps{
-    
-    margin-left: 19.5%;
-
-}  */
 .picker {
     height: 25rem;
 }
 
+/* .grand-semaine {
+    left: 40rem;
+} */
+
+.date {
+    height: 15rem;
+}
+
+/* .week {} */
+
 .border {
-    border-left: 8px solid black;
-    height: 1450px;
+    border-left: 20px solid black;
+    height: 1331px;
     position: absolute;
-    /* left: 18.6%; */
-    /* margin-right: 30px; */
+    left: 20.35rem;
     top: 0;
 }

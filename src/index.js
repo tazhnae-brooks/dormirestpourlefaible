@@ -11,16 +11,16 @@ class Index extends Component {
         return (
 
             <div class="slds-grid slds-wrap" >
-                <div class="slds-col slds-size_1-of-4">
-                    <div className="picker"><Tiny /></div>
-                    <div>
-                    </div>
+                <div class="slds-col slds-size_2-of-12">
+                    <div className="picker"> <Tiny /></div>
                     <Names />
                 </div>
                 <div className="border"></div>
-                <div class="slds-col slds-size_3-of-4">
+                <div class="slds-col slds-size_1-of-12">
                     <Temps />
-                    <Big />
+                </div>
+                <div class="slds-col slds-size_9-of-12">
+                    <div className="date"> <Big /> </div>
                     <Roles />
                 </div>
             </div>
