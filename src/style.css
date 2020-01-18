@@ -13,9 +13,10 @@
 /* .week {} */
 
 .border {
-    border-left: 20px solid black;
+    border: 4px solid black;
     height: 1331px;
     position: absolute;
-    left: 20.35rem;
+    /* left: 20.35rem; */
     top: 0;
+
 }

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+// import moment from 'moment';
 import { Button } from '@salesforce/design-system-react';
 import { DataTable } from '@salesforce/design-system-react';
 import { DataTableColumn } from '@salesforce/design-system-react';
 // import {DataTableCell} from '@salesforce/design-system-react';
 import { IconSettings } from '@salesforce/design-system-react';
 import './style.css';
+import moment from 'moment';
+import datePicker from '@salesforce/design-system-react/lib/components/date-picker';
 
 
 //week template
@@ -33,50 +36,64 @@ import './style.css';
 // 	<DataTableColumn key="day7" label="Dimanche" property="weekDay7" width="20em" />,
 // ]
 
-Moment.globalFormat = "MMMM DD, YYYY"
+Moment.globalFormat = "MMMM DD" // January 2020
 class Big extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			month: <Moment></Moment>, // January 2020
-			week: <Moment> </Moment>,  //adding week aspect prob #1- copying the month components seems dumb ma'am 
+			month: <Moment></Moment>,
+			week: <Moment></Moment> //adding week: prob #1- copying the month components seems dumb ma'am 
 		};
 		this.monthOffset = 0
 		this.weekOffset = 0
 		this.previousMonth = this.previousMonth.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
+		//week
+		this.previousWeek = this.previousWeek.bind(this);
+		this.nextWeek = this.nextWeek.bind(this);
 	}
 
 	componentDidMount() {
 		this.setState(() => ({
 			month: <Moment>{new Date()}</Moment>,
-			week: <Moment>{new Date()}</Moment>,
+			week: <Moment>{new Date()}</Moment>,  // {moment().day(7)} 
 
 		}));
 	}
-
+	//month
 	previousMonth() {
 		this.monthOffset--
-		this.weekOffset--
 		this.setState(state => ({
 			month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
-			week: <Moment add={{ week: this.weekOffset }}>{this.state.week}</Moment>,
-
-
 		}));
 	}
-
-
 	nextMonth() {
 		this.monthOffset++
-		this.weekOffset++
 		this.setState(state => ({
 			month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
+
+
+		}));
+	}
+
+	//week
+	previousWeek() {
+		this.weekOffset--
+		this.setState(state => ({
 			week: <Moment add={{ week: this.weekOffset }}>{this.state.week}</Moment>,
 
 
 		}));
 	}
+	nextWeek() {
+		this.weekOffset++
+		this.setState(state => ({
+			week: <Moment add={{ week: this.weekOffset }}>{this.state.week}</Moment>,
+		}));
+	}
+
+
+
 
 	// static displayName = 'weektemplate';
 	// state = {
@@ -112,8 +129,10 @@ class Big extends Component {
 					<h1>{this.state.month}</h1>
 					< Button onClick={this.previousMonth}>Previous</Button>
 					< Button onClick={this.nextMonth}>Next</Button>
+					{/* week*/} <br /> <br />
+					< Button onClick={this.previousWeek}>previous week</Button>
+					< Button onClick={this.nextWeek}>next week </Button>
 					<h1>{this.state.week}</h1> {/* shows every thursday date when button clicked*/}
-					<h1>{this.state.day}</h1>
 				</div>
 				{/* <IconSettings iconPath="/icons">
 					<div className="grand-semaine">
