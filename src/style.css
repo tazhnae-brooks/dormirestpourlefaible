@@ -10,6 +10,12 @@
     height: 15rem;
 }
 
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0.0625rem
+}
+
 /* .week {} */
 
 .border {

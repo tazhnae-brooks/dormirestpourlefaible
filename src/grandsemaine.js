@@ -7,9 +7,9 @@ import { DataTableColumn } from '@salesforce/design-system-react';
 // import {DataTableCell} from '@salesforce/design-system-react';
 import { IconSettings } from '@salesforce/design-system-react';
 import './style.css';
-import moment from 'moment';
+// import moment from 'moment';
 import datePicker from '@salesforce/design-system-react/lib/components/date-picker';
-
+const moment = require("moment")
 
 //week template
 
@@ -54,9 +54,12 @@ class Big extends Component {
 	}
 
 	componentDidMount() {
+		// console.log(
+		// 	moment().startOf('isoweek').format())
 		this.setState(() => ({
 			month: <Moment>{new Date()}</Moment>,
-			week: <Moment>{new Date()}</Moment>,  // {moment().day(7)} 
+			week: <Moment>{moment().startOf('isoweek').format()}</Moment>,
+			// {moment().day(7)} 
 
 		}));
 	}
