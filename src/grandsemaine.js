@@ -42,10 +42,12 @@ class Big extends Component {
 		super(props);
 		this.state = {
 			month: <Moment></Moment>,
-			week: <Moment></Moment> //adding week: prob #1- copying the month components seems dumb ma'am 
+			week: undefined, //adding week: prob #1- copying the month components seems dumb ma'am 
+			weekD1: undefined
 		};
 		this.monthOffset = 0
-		this.weekOffset = 0
+		// this.weekOffset = 0
+		// this.weekD1Offset = 0
 		this.previousMonth = this.previousMonth.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
 		//week
@@ -58,7 +60,8 @@ class Big extends Component {
 		// 	moment().startOf('isoweek').format())
 		this.setState(() => ({
 			month: <Moment>{new Date()}</Moment>,
-			week: <Moment>{moment().startOf('isoweek').format()}</Moment>,
+			week: moment().startOf('isoweek').format(), //{moment().endOf('isoweek').add(6, 'days').format()}
+			weekD1: moment().endOf('isoweek').format()
 			// {moment().day(7)} 
 
 		}));
@@ -74,24 +77,21 @@ class Big extends Component {
 		this.monthOffset++
 		this.setState(state => ({
 			month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
-
-
 		}));
 	}
 
 	//week
 	previousWeek() {
-		this.weekOffset--
-		this.setState(state => ({
-			week: <Moment add={{ week: this.weekOffset }}>{this.state.week}</Moment>,
-
-
+		this.setState(() => ({
+			week: moment(this.state.week).add(-7, 'days').toDate(),//<Moment add={{ days: 10 }}>{this.state.week}</Moment>,
+			weekD1: moment(this.state.weekD1).add(-7, 'days').toDate(),
 		}));
 	}
 	nextWeek() {
-		this.weekOffset++
 		this.setState(state => ({
-			week: <Moment add={{ week: this.weekOffset }}>{this.state.week}</Moment>,
+			week: moment(this.state.week).add(7, 'days').toDate(),
+			weekD1: moment(this.state.weekD1).add(7, 'days').toDate(),
+
 		}));
 	}
 
@@ -135,7 +135,8 @@ class Big extends Component {
 					{/* week*/} <br /> <br />
 					< Button onClick={this.previousWeek}>previous week</Button>
 					< Button onClick={this.nextWeek}>next week </Button>
-					<h1>{this.state.week}</h1> {/* shows every thursday date when button clicked*/}
+					<h1><Moment>{this.state.week}</Moment></h1> {/* shows every thursday date when button clicked*/}
+					<h1><Moment>{this.state.weekD1}</Moment></h1>
 				</div>
 				{/* <IconSettings iconPath="/icons">
 					<div className="grand-semaine">

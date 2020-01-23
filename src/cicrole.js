@@ -13,11 +13,13 @@ const Grid = ({ children, ...props }) => (
 	<DataTableCell {...props}>
 
 		<IconSettings iconPath="/icons">
-			{/* <section className="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center" > */}
-			<div className="slds-col_padded" styleContainer={{ "width": "50%" }}>
-				<Input id="base-id" styleInput={{ "width": "inherit" }} styleContainer={{ "width": "inherit" }} />
+			<div style={{ "width": "fit-content" }}>
+				{/* <section className="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center" > */}
+				<div className="slds-col_padded " > {/*styleContainer={"width: inherit"} > */}
+					<Input id="base-id" styleInput={{ "width": "inherit" }} styleContainer={{ "width": "inherit" }} />
+				</div>
+				{/* </section> */}
 			</div>
-			{/* </section> */}
 		</IconSettings>
 
 		{/* <a
@@ -71,11 +73,20 @@ const Grid = ({ children, ...props }) => (
 Grid.displayName = DataTableCell.displayName;
 
 
-// const Input = ({ children, ...props }) => (
+// const ManInput = ({ children, ...props }) => (
 // 	<DataTableCell  {...props}>
 
-// 		<Button class="slds-button slds-button_icon slds-cell-edit__button " ></Button>
-// 		<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true"></svg>
+// 		{/* <Button class="slds-button slds-button_icon slds-cell-edit__button " ></Button>
+// 		<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true"></svg> */}
+// 		<div styleContainer={{ "width": "fit-content" }}>
+// 			{/* <section className="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center" > */}
+// 			<div className="slds-col_padded" > {/*styleContainer={"width: inherit"} > */}
+// 				<Input id="base-id" styleInput={{ "width": "inherit" }} styleContainer={{ "width": "inherit" }} />
+// 			</div>
+// 			{/* </section> */}
+// 		</div>
+// 		{children}
+
 // 	</DataTableCell>
 
 // )
@@ -88,8 +99,6 @@ Grid.displayName = DataTableCell.displayName;
 const columns = [
 
 	<DataTableColumn
-		// class="slds-cell-edit"
-		// role="gridcell"
 		key="role1"
 		label="Multi IC"
 		property="multiIC"
@@ -98,7 +107,6 @@ const columns = [
 	// width="20em"
 	>
 		<Grid />
-
 	</DataTableColumn>,
 
 
@@ -121,108 +129,38 @@ const columns = [
 ];
 
 class Role extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			row: []
+		};
+		this.displayName = 'roles'
+	}
 
-	// handleChanged = (event, data) => {
-	// 	this.setState({
-	// 		selectedInput: data.selection
-	// 	});
-	// 	console.log(event, data);
-	// };
+
+	componentDidMount() {
+		var rows = [];
+		for (var i = 0; i < 37; i++) {
+			rows.push(
+				{
+					id: i,
+					multiIC: '',
+					bo: '',
+					lno: '',
+					scribe: '',
+					singleic: '',
+					exec: '',
+					uc: '',
+					ecomm: ''
+				}
+			)
+		}
+		this.setState(() => ({
+			row: rows
+		}));
+	}
 
 
-
-	static displayName = 'roles';
-
-	state = {
-		row: [
-			{
-				id: '8IKZHZZV81',
-				multiIC: "name",
-				bo: 'name',
-				lno: 'name',
-				scribe: 'name',
-				singleic: 'name',
-				exec: 'name',
-				uc: 'name',
-				ecomm: 'name',
-
-			},
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '8IKZHZZV81', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-
-			{ id: '5GJOOOPWU7', multiIC: ".", bo: '.', lno: '.', scribe: '.', singleic: '.', exec: '.', uc: '.', ecomm: '.' },
-		],
-	};
 
 	render() {
 		return (
@@ -243,6 +181,7 @@ class Role extends Component {
 									</Button>
 								</span>
 							</div> */}
+
 						</DataTable>
 					</div>
 				</IconSettings>
