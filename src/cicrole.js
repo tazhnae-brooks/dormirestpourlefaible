@@ -13,11 +13,9 @@ const Grid = ({ children, ...props }) => (
 	<DataTableCell {...props}>
 
 		<IconSettings iconPath="/icons">
-			<div style={{ "width": "fit-content" }}>
-				{/* <section className="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center" > */}
-				<div className="slds-col_padded " > {/*styleContainer={"width: inherit"} > */}
-					<Input id="base-id" styleInput={{ "width": "inherit" }} styleContainer={{ "width": "inherit" }} />
-				</div>
+			{/* <section className="slds-grid slds-grid_pull-padded " styleContainer={{ "width": "200px" }} >  slds-grid slds-grid_pull-padded slds-grid_vertical-align-center slds-col_padded */}
+			<div className=".slds-form-element__control" >
+				<Input id="base-id" styleInput={{ "width": "inherit" }} aria-expanded />
 				{/* </section> */}
 			</div>
 		</IconSettings>
@@ -73,35 +71,33 @@ const Grid = ({ children, ...props }) => (
 Grid.displayName = DataTableCell.displayName;
 
 
-// const ManInput = ({ children, ...props }) => (
-// 	<DataTableCell  {...props}>
-
-// 		{/* <Button class="slds-button slds-button_icon slds-cell-edit__button " ></Button>
-// 		<svg class="slds-button__icon slds-button__icon_hint slds-button__icon_edit" aria-hidden="true"></svg> */}
-// 		<div styleContainer={{ "width": "fit-content" }}>
-// 			{/* <section className="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center" > */}
-// 			<div className="slds-col_padded" > {/*styleContainer={"width: inherit"} > */}
-// 				<Input id="base-id" styleInput={{ "width": "inherit" }} styleContainer={{ "width": "inherit" }} />
-// 			</div>
-// 			{/* </section> */}
-// 		</div>
-// 		{children}
-
-// 	</DataTableCell>
-
-// )
-
-// Input.displayName = DataTableCell.displayName;
+const header = [
+	<DataTableColumn
+		key="role1"
+		label="Multi IC"
+		property="multiIC"
 
 
+		width="87.5em" //temp format, pls change later
+	>
+
+	</DataTableColumn>,
+
+
+	<DataTableColumn key="role5" label="Single IC" property="singleic" width="16rem" />,
+
+	<DataTableColumn key="role7" label="UC" property="uc" width="15rem" />,
+
+	<DataTableColumn key="role8" label="EComm" property="ecomm" width="" />,
+]
 
 //role table
 const columns = [
 
 	<DataTableColumn
-		key="role1"
-		label="Multi IC"
-		property="multiIC"
+		key="subrole1"
+		label="IC"
+		property="ic"
 
 
 	// width="20em"
@@ -110,19 +106,25 @@ const columns = [
 	</DataTableColumn>,
 
 
-	<DataTableColumn key="role2" label="BO" property="bo" />,
+	<DataTableColumn key="subrole2" label="BO" property="bo" />,
 
-	<DataTableColumn key="role3" label="LNO" property="lno" />,
+	<DataTableColumn key="subrole3" label="LNO" property="lno" />,
 
-	<DataTableColumn key="role4" label="Scribe" property="scribe" />,
+	<DataTableColumn key="subrole4" label="Scribe" property="scribe" />,
 
-	<DataTableColumn key="role5" label="Single IC" property="singleic" />,
+	<DataTableColumn key="subrole5" label="OR" property="or" />,
 
-	<DataTableColumn key="role6" label="Ex Esc" property="exec" />,
+	<DataTableColumn key="subrole6" label="IC" property="singleic" />,
 
-	<DataTableColumn key="role7" label="UC" property="uc" />,
+	<DataTableColumn key="subrole7" label="Ex Esc" property="exec" />,
 
-	<DataTableColumn key="role8" label="EComm" property="ecomm" />,
+	<DataTableColumn key="subrole8" label="PRI" property="ucpri" />,
+
+	<DataTableColumn key="subrole9" label="SEC" property="ucsec" />,
+
+	<DataTableColumn key="subrole8" label="PRI" property="ecommpri" />,
+
+	<DataTableColumn key="subrole9" label="SEC" property="ecommsec" />,
 
 
 
@@ -140,18 +142,21 @@ class Role extends Component {
 
 	componentDidMount() {
 		var rows = [];
-		for (var i = 0; i < 37; i++) {
+		for (var i = 0; i < 1; i++) {
 			rows.push(
 				{
 					id: i,
-					multiIC: '',
+					ic: '',
 					bo: '',
 					lno: '',
 					scribe: '',
+					or: '',
 					singleic: '',
 					exec: '',
-					uc: '',
-					ecomm: ''
+					ucpri: '',
+					ucsec: '',
+					ecommpri: '',
+					ecommsec: '',
 				}
 			)
 		}
@@ -162,28 +167,22 @@ class Role extends Component {
 
 
 
+
+
 	render() {
 		return (
-			<div className="roles">
+			<div > {/*style={{ "width": "176px" }}, style={{ "content": "176px" }}*/}
 				<IconSettings iconPath="/icons">
-					<div className="roles">
-						<DataTable
-							columnBordered
-							items={this.state.row}
-							id="roles-columnBordered"
-							noRowHover
-						>
-							{columns}
-							{/* <div>
-								<span class=" slds-cell-edit slds-grid">
-									<Button class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" assistiveText={{ icon: 'slds-button__icon slds-button__icon_hint slds-button__icon_edit' }}>
-										<span class="slds-assistive-text"> Edit Name of name</span>
-									</Button>
-								</span>
-							</div> */}
+					<DataTable columnBordered>{header}</DataTable>
+					<DataTable
+						columnBordered
+						items={this.state.row}
+						id="roles-columnBordered"
+						noRowHover
+					>
+						{columns}
 
-						</DataTable>
-					</div>
+					</DataTable>
 				</IconSettings>
 			</div>
 		);
