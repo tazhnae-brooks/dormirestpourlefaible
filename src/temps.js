@@ -34,11 +34,14 @@ class Temps extends Component {
 				{/* <span> Temps: </span> */}
 				<IconSettings iconPath="/icons">
 					<Dropdown
-						assistiveText={{ icon: 'Checkmark' }}
-						checkmark
+						// assistiveText={{ icon: 'Checkmark' }}
+						// checkmark
+						align="left"
 						iconCategory="utility"
 						iconName="down"
-						iconVariant="border-filled"
+						// iconVariant="border-filled"
+						iconPosition="right"
+						label="Temps"
 						onSelect={(selected) => {
 							this.handleSelectChange(selected.value);
 						}}

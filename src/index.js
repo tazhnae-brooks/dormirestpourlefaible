@@ -15,7 +15,7 @@ class Index extends Component {
                     <div className="picker"> <Tiny /></div>
                     <Names />
                 </div>
-                <div class="slds-col slds-size_1-of-12">
+                <div class="slds-col slds-size_1-of-12 slds-dropdown_xxx-small">
                     <Temps />
                 </div>
                 <div class="slds-col slds-size_9-of-12">

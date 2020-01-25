@@ -8,7 +8,6 @@ class Tiny extends Component {
 
     render() {
         return (
-            // <div className="petitecalendrier">
             <div>
                 <IconSettings iconPath="/icons">
                     <Datepicker

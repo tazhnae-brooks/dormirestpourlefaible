@@ -8,33 +8,8 @@ import { DataTableColumn } from '@salesforce/design-system-react';
 import { IconSettings } from '@salesforce/design-system-react';
 import './style.css';
 // import moment from 'moment';
-import datePicker from '@salesforce/design-system-react/lib/components/date-picker';
 const moment = require("moment")
 
-//week template
-
-// const template = [
-// 	<DataTableColumn
-// 		key="day1"
-// 		label="Lundi"
-// 		property="weekDay"
-// 		width="20em"
-// 	>
-// 	</DataTableColumn>,
-
-
-// 	<DataTableColumn key="day2" label="Mardi" property="weekDay2" width="20em" />,
-
-// 	<DataTableColumn key="day3" label="Mercredi" property="weekDay3" width="20em" />,
-
-// 	<DataTableColumn key="day4" label="Jeudi" property="weekDay4" width="20em" />,
-
-// 	<DataTableColumn key="day5" label="Vendredi" property="weekDay5" width="20em" />,
-
-// 	<DataTableColumn key="day6" label="Samedi" property="weekDay6" width="20em" />,
-
-// 	<DataTableColumn key="day7" label="Dimanche" property="weekDay7" width="20em" />,
-// ]
 
 Moment.globalFormat = "MMMM DD" // January 2020
 class Big extends Component {
@@ -83,7 +58,7 @@ class Big extends Component {
 	//week
 	previousWeek() {
 		this.setState(() => ({
-			week: moment(this.state.week).add(-7, 'days').toDate(),//<Moment add={{ days: 10 }}>{this.state.week}</Moment>,
+			week: moment(this.state.week).add(-7, 'days').toDate(), //<Moment add={{ days: 10 }}>{this.state.week}</Moment>,
 			weekD1: moment(this.state.weekD1).add(-7, 'days').toDate(),
 		}));
 	}
@@ -96,60 +71,24 @@ class Big extends Component {
 	}
 
 
-
-
-	// static displayName = 'weektemplate';
-	// state = {
-	// 	row: [
-
-	// 		{
-	// 			id: '8IKZHZZV80',
-	// 			weekDay: '1',
-	// 			weekDay2: '2',
-	// 			weekDay3: '3',
-	// 			weekDay4: '4',
-	// 			weekDay5: '5',
-	// 			weekDay6: '6',
-	// 			weekDay7: '7',
-	// 		},
-	// 		// {
-	// 		// 	id: '5GJOOOPWU7',
-	// 		// 	weekDay: '8',
-	// 		// 	/*weekDay2: '2',
-	// 		// 	weekDay3: '3',
-	// 		// 	weekDay4: '4',
-	// 		// 	weekDay5: '5',
-	// 		// 	weekDay6: '6',
-	// 		// 	weekDay7: '7',*/
-	// 		// },
-	// 	],
-	// };
-
 	render() {
 		return (
 			<div >
 				<div className="grand-semaine">
-					<h1>{this.state.month}</h1>
-					< Button onClick={this.previousMonth}>Previous</Button>
-					< Button onClick={this.nextMonth}>Next</Button>
-					{/* week*/} <br /> <br />
-					< Button onClick={this.previousWeek}>previous week</Button>
-					< Button onClick={this.nextWeek}>next week </Button>
-					<h1><Moment>{this.state.week}</Moment></h1> {/* shows every thursday date when button clicked*/}
-					<h1><Moment>{this.state.weekD1}</Moment></h1>
-				</div>
-				{/* <IconSettings iconPath="/icons">
-					<div className="grand-semaine">
-						<DataTable
-							columnBordered
-							items={this.state.row}
-							id="weektemplate-columnBordered"
-							noRowHover
-						>
-							{template}
-						</DataTable>
+					<div className="month">
+						<h1>{this.state.month}</h1>
+						< Button onClick={this.previousMonth}>Previous</Button>
+						< Button onClick={this.nextMonth}>Next</Button>
 					</div>
-				</IconSettings> */}
+					<br /> <br />
+					<div className="week">
+						< Button onClick={this.previousWeek}>previous week</Button>
+						< Button onClick={this.nextWeek}>next week </Button>
+						<h1><Moment>{this.state.week}</Moment></h1>
+						<h1><Moment>{this.state.weekD1}</Moment></h1>
+					</div>
+				</div>
+
 			</div>
 		);
 	}
