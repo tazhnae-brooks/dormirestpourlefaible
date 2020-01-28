@@ -12,60 +12,27 @@ const Grid = ({ children, ...props }) => (
 	<DataTableCell {...props}>
 
 		<IconSettings iconPath="/icons">
-			{/* <section className="slds-grid slds-grid_pull-padded " styleContainer={{ "width": "200px" }} >  slds-grid slds-grid_pull-padded slds-grid_vertical-align-center slds-col_padded
-			<div className=".slds-form-element__control" >
-				<Input id="base-id" styleInput={{ "width": "inherit" }} styleContainer={{ "background-color": "red", "width": "50%" }} />
-				{/* </section> 
-			</div> */}
+
 			<div class="slds-form-element">
 				<div class="slds-form-element__control" >
-					<input type="text" id="text-input-id-1" required="" class="slds-input" />
+					<input type="text" id="text-input-id-1" required="" class="slds-input" value={props.col + " " + props.row} /> {/*value={this.props.col}*/}
 				</div>
 			</div>
 		</IconSettings>
-		{children}
+		{/* {children} */}
 	</DataTableCell >
 );
 Grid.displayName = DataTableCell.displayName;
 
 
-// const header = [
-// 	<DataTableColumn
-// 		key="role1"
-// 		label="Multi IC"
-// 		property="multiIC"
-
-
-// 		width="50rem" //temp format, pls change later
-// 	>
-
-// 	</DataTableColumn>,
-
-
-// 	<DataTableColumn key="role5" label="Single IC" property="singleic" width="20rem" />,
-
-// 	<DataTableColumn key="role7" label="UC" property="uc" width="20rem" />,
-
-// 	<DataTableColumn key="role8" label="EComm" property="ecomm" width="20rem" />,
-// ]
-
-
 //role table
 const columns = [
 
-	<DataTableColumn
-		key="subrole1"
-		label="IC"
-		property="ic"
 
 
-		width="10rem"
-	>
-		<Grid />
-	</DataTableColumn>,
+	<DataTableColumn key="subrole1" label="IC" property="ic" width="10rem"><Grid col={1} row={1} /></DataTableColumn>,
 
-
-	<DataTableColumn key="subrole2" label="BO" property="bo" width="10rem"><Grid /></DataTableColumn>,
+	<DataTableColumn key="subrole2" label="BO" property="bo" width="10rem"><Grid col={2} row={2} /></DataTableColumn>,
 
 	<DataTableColumn key="subrole3" label="LNO" property="lno" width="10rem"><Grid /></DataTableColumn>,
 
@@ -81,9 +48,9 @@ const columns = [
 
 	<DataTableColumn key="subrole9" label="SEC" property="ucsec" width="10rem" ><Grid /></DataTableColumn>,
 
-	<DataTableColumn key="subrole8" label="PRI" property="ecommpri" width="10rem" ><Grid /></DataTableColumn>,
+	<DataTableColumn key="subrole10" label="PRI" property="ecommpri" width="10rem" ><Grid /></DataTableColumn>,
 
-	<DataTableColumn key="subrole9" label="SEC" property="ecommsec" width="10rem"><Grid /></DataTableColumn>,
+	<DataTableColumn key="subrole11" label="SEC" property="ecommsec" width="10rem"><Grid /></DataTableColumn>,
 
 
 
@@ -101,10 +68,10 @@ class Role extends Component {
 
 	componentDidMount() {
 		var rows = [];
-		for (var i = 0; i < 29; i++) {
+		for (var i = 1; i <= 29; i++) {
 			rows.push(
 				{
-					id: i,
+					row: i,
 					ic: '',
 					bo: '',
 					lno: '',
@@ -118,6 +85,7 @@ class Role extends Component {
 					ecommsec: '',
 				}
 			)
+
 		}
 		this.setState(() => ({
 			row: rows
@@ -132,7 +100,6 @@ class Role extends Component {
 		return (
 			<div >
 				<IconSettings iconPath="/icons">
-					{/* <DataTable columnBordered>{header}</DataTable> */}
 					<table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_fixed-layout">
 						<thead>
 							<tr class="slds-line-height_reset">
@@ -151,7 +118,45 @@ class Role extends Component {
 
 							</tr>
 						</thead>
+						{/* <thead>
+							<tr class="slds-line-height_reset">
+								<th class="" scope="col" colspan="1" >
+									<div class="slds-truncate">IC</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">BO</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">SCRIBE</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">LNO</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">OR</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">IC</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">EX ESC</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">PRI</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">SEC</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">PRI</div>
+								</th>
+								<th class="" scope="col" colspan="1">
+									<div class="slds-truncate">SEC</div>
+								</th>
+							</tr> 
+						</thead>*/}
 					</table>
+
 					<DataTable
 						columnBordered
 						items={this.state.row}
@@ -159,12 +164,16 @@ class Role extends Component {
 						noRowHover
 
 					>
+
 						{columns}
 					</DataTable>
 				</IconSettings>
-			</div>
+			</div >
 		);
 	}
 }
+
+
+
 
 export default Role;
