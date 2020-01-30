@@ -16,13 +16,12 @@ class Big extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			month: undefined,
-			// <Moment></Moment>,
+			month: <Moment></Moment>,
 			week: undefined, //adding week: prob #1- copying the month components seems dumb ma'am 
 			weekD1: undefined,
 			day1: undefined,
 		};
-		// this.monthOffset = 0
+		this.monthOffset = 0
 		// this.weekOffset = 0
 		// this.weekD1Offset = 0
 		this.previousMonth = this.previousMonth.bind(this);
@@ -36,7 +35,7 @@ class Big extends Component {
 		// console.log(
 		// 	moment().startOf('isoweek').format())
 		this.setState(() => ({
-			month: moment().startOf('month').format(''),
+			month: <Moment>{new Date()}</Moment>,
 			week: moment().startOf('isoweek').format(''), //{moment().endOf('isoweek').add(6, 'days').format()}
 			weekD1: moment().endOf('isoweek').format(''),
 			// day: moment()
@@ -46,16 +45,15 @@ class Big extends Component {
 	}
 	//month
 	previousMonth() {
-		// this.monthOffset--
+		this.monthOffset--
 		this.setState(state => ({
 			month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
 		}));
 	}
 	nextMonth() {
-		// this.monthOffset++
+		this.monthOffset++
 		this.setState(() => ({
-			month: moment(this.state.month).add(1, 'month').toDate(),
-			// month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
+			month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
 		}));
 	}
 
@@ -80,7 +78,7 @@ class Big extends Component {
 			<div >
 				<div className="grand-semaine">
 					<div className="month">
-						<Moment><h1>{this.state.month}</h1></Moment>
+						<h1>{this.state.month}</h1>
 						< Button onClick={this.previousMonth}>Previous</Button>
 						< Button onClick={this.nextMonth}>Next</Button>
 					</div>
