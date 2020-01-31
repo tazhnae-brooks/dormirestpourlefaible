@@ -5,7 +5,6 @@ import { IconSettings } from '@salesforce/design-system-react';
 import './style.css';
 
 
-//ref link: https://stackoverflow.com/questions/34257665/is-there-any-way-to-access-the-parent-component-instance-in-react
 
 
 // const Grid = () => (
@@ -23,21 +22,28 @@ import './style.css';
 class Grid extends Component {
 	constructor(props) {
 		super(props);
+		// const chip = [];
+		// for (var i = 0; i < 29; i++) {
+		// 	chip.push(
+		// 		{
+		// 			potato: chance.number()
+		// 		}
+		// 	);
+		// }
 		this.state = {
 			col: props.col,
-			row: props.row
+			row: props.row,
+			// chip
 		}
 	}
+
 
 	render() {
 		return (
 			<DataTableCell >
-
-
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" value={this.state.col + " " + this.state.row} /> {/* value={this.state.col + " " + this.state.row}*/}
-
+						<input type="text" id="text-input-id-1" required="" class="slds-input" value={this.state.col + ":" + this.state.row} /> {/* value={this.state.col + " " + this.state.row}*/}
 					</div>
 				</div>
 			</DataTableCell >
@@ -56,7 +62,7 @@ const columns = [
 
 	<DataTableColumn key="subrole1" label="IC" property="ic" width="10rem"><Grid col={1} row={1} /></DataTableColumn>, /*<Grid col={1} row={1} /> */,
 
-	<DataTableColumn key="subrole2" label="BO" property="bo" width="10rem"><Grid /></DataTableColumn>,
+	<DataTableColumn key="subrole2" label="BO" property="bo" width="10rem"><Grid col={2} row={1} /></DataTableColumn>,
 
 	<DataTableColumn key="subrole3" label="LNO" property="lno" width="10rem"><Grid /></DataTableColumn>,
 
@@ -109,29 +115,29 @@ class Role extends Component {
 					ecommsec: '',
 				}
 			)
-			// ROWS.push(
-			// 	<DataTableColumn key="subrole1" label="IC" property="ic" width="10rem"><Grid col={1} row={i} /></DataTableColumn>,
+			// 	ROWS.push(
+			// 		<DataTableColumn key="subrole1" label="IC" property="ic" width="10rem"><Grid col={1} row={i} /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole2" label="BO" property="bo" width="10rem"><Grid col={2} row={i} /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole2" label="BO" property="bo" width="10rem"><Grid col={2} row={i} /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole3" label="LNO" property="lno" width="10rem"><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole3" label="LNO" property="lno" width="10rem"><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole4" label="Scribe" property="scribe" width="10rem" ><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole4" label="Scribe" property="scribe" width="10rem" ><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole5" label="OR" property="or" width="10rem" ><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole5" label="OR" property="or" width="10rem" ><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole6" label="IC" property="singleic" width="10rem" ><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole6" label="IC" property="singleic" width="10rem" ><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole7" label="Ex Esc" property="exec" width="10rem"><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole7" label="Ex Esc" property="exec" width="10rem"><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole8" label="PRI" property="ucpri" width="10rem" ><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole8" label="PRI" property="ucpri" width="10rem" ><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole9" label="SEC" property="ucsec" width="10rem" ><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole9" label="SEC" property="ucsec" width="10rem" ><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole10" label="PRI" property="ecommpri" width="10rem" ><Grid /></DataTableColumn>,
+			// 		<DataTableColumn key="subrole10" label="PRI" property="ecommpri" width="10rem" ><Grid /></DataTableColumn>,
 
-			// <DataTableColumn key="subrole11" label="SEC" property="ecommsec" width="10rem"><Grid /></DataTableColumn>
-			// )
+			// 		<DataTableColumn key="subrole11" label="SEC" property="ecommsec" width="10rem"><Grid /></DataTableColumn>
+			// 	)
 		}
 		this.setState(() => ({
 			row: rows
