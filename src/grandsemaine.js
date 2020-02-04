@@ -84,10 +84,11 @@ class Big extends Component {
 					</div>
 					<br /> <br />
 					<div className="week">
-						< Button onClick={this.previousWeek}>previous week</Button>
-						< Button onClick={this.nextWeek}>next week </Button>
-						<h1><Moment>{this.state.week}</Moment></h1>
-						<h1><Moment>{this.state.weekD1}</Moment></h1>
+						<h1><Moment>{this.state.week}</Moment> - <Moment>{this.state.weekD1}</Moment></h1>
+						<div className="buttons">
+							< Button onClick={this.previousWeek}>previous week</Button>
+							< Button onClick={this.nextWeek}>next week </Button>
+						</div>
 					</div>
 				</div>
 			</div>

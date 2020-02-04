@@ -1,10 +1,10 @@
-.picker {
-    height: 25rem;
-}
+ .picker {
+     height: 25rem;
+ }
 
-/* .grand-semaine {
+ /* .grand-semaine {
     left: 40rem;
-} */
+} 
 
 .date {
     height: 15rem;
@@ -14,15 +14,22 @@
     position: absolute;
     top: 0;
     left: 0.0625rem
-}
+} */
 
-/* .week {} */
+ .week h1 {
+     text-align: center;
+     font-size: large;
+ }
 
-.border {
-    border: 4px solid black;
-    height: 1331px;
-    position: absolute;
-    /* left: 20.35rem; */
-    top: 0;
+ /* .prev button {
+    
+} */
 
-}
+ .border {
+     border: 4px solid black;
+     height: 1331px;
+     position: absolute;
+     /* left: 20.35rem; */
+     top: 0;
+
+ }

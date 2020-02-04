@@ -19,7 +19,7 @@ class Temps extends Component {
 		super(props);
 
 		this.state = {
-			selectedValue: 'froid doigts'
+			selectedValue: 'time'
 		}
 	}
 
