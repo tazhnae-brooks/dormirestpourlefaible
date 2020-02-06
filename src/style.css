@@ -21,9 +21,17 @@
      font-size: large;
  }
 
- /* .prev button {
-    
-} */
+ .day h1 {
+     text-align: center;
+     font-size: large;
+ }
+
+
+
+ /* .nextbutton {
+     right: 40rem;
+
+ } */
 
  .border {
      border: 4px solid black;
