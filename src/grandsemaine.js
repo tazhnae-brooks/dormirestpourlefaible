@@ -83,14 +83,14 @@ class Big extends Component {
 					<br /> <br />
 					<div className="week">
 						<h1><Moment format="MMMM Do">{this.state.week}</Moment> - <Moment format="MMMM Do">{this.state.weekD1}</Moment></h1>
-						<div className="buttons" style={{ "height": "5rem" }}>
+						<div className="buttons" style={{ "height": "6rem" }}>
 							{/* < Button onClick={this.previousWeek}>previous week</Button> */}
 							<button class="slds-button slds-button_neutral slds-float_left" onClick={this.previousWeek}>previous week</button>
 							<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextWeek}>next week</button>
 							{/* <Button onClick={this.nextWeek}>next week </Button> */}
 						</div>
 					</div>
-					<div className="day">
+					<div className="day" style={{ "height": "7rem" }}>
 						<h1><Moment format="dddd, MMMM Do">{this.state.day}</Moment></h1>
 						<button class="slds-button slds-button_neutral slds-float_left" onClick={this.previousDay}> previous day</button>
 						<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextDay}> next day</button>

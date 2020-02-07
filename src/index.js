@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Roles from './cicrole.js';
+import Role from './cicrole.js';
 import Temps from './temps.js';
 import Tiny from './petitecalendrier.js';
 import Big from './grandsemaine.js';
@@ -11,7 +11,7 @@ class Index extends Component {
         return (
 
             <div class="slds-grid slds-wrap" >
-                <div class="slds-col slds-size_2-of-12 slds-border_right" style={{ "height": "90rem" }}>
+                <div class="slds-col slds-size_2-of-12 slds-border_right" style={{ "height": "83rem" }}>
                     <div className="picker"> <Tiny /></div>
                     <Names />
                 </div>
@@ -20,9 +20,10 @@ class Index extends Component {
                     {/* <div class="slds-border_right " /> */}
 
                 </div>
-                <div class="slds-col slds-size_9-of-12">
+                <div class="slds-col slds-size_9-of-12" >
                     <div className="date"> <Big /> </div>
-                    <Roles />
+                    <br />
+                    <div className="roles"> <Role /> </div>
                 </div>
             </div>
         )
