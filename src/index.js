@@ -11,14 +11,12 @@ class Index extends Component {
         return (
 
             <div class="slds-grid slds-wrap" >
-                <div class="slds-col slds-size_2-of-12 slds-border_right" style={{ "height": "83rem" }}>
+                <div class="slds-col slds-size_2-of-12 slds-border_right" style={{ "height": "70rem" }}>
                     <div className="picker"> <Tiny /></div>
                     <Names />
                 </div>
                 <div class="slds-col slds-size_1-of-12 slds-dropdown_xxx-small">
                     <Temps />
-                    {/* <div class="slds-border_right " /> */}
-
                 </div>
                 <div class="slds-col slds-size_9-of-12" >
                     <div className="date"> <Big /> </div>

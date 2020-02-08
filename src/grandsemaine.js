@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 // import moment from 'moment';
-import { Button } from '@salesforce/design-system-react';
-// import { DataTable } from '@salesforce/design-system-react';
-// import { DataTableColumn } from '@salesforce/design-system-react';
-// import {DataTableCell} from '@salesforce/design-system-react';
+//import { Button } from '@salesforce/design-system-react';
 import { IconSettings } from '@salesforce/design-system-react';
 import './style.css';
-// import moment from 'moment';
 const moment = require("moment")
 
 
@@ -75,7 +71,7 @@ class Big extends Component {
 		}));
 	}
 
-
+	// style={{ "height": "6rem" }}
 	render() {
 		return (
 			<div >
@@ -83,14 +79,14 @@ class Big extends Component {
 					<br /> <br />
 					<div className="week">
 						<h1><Moment format="MMMM Do">{this.state.week}</Moment> - <Moment format="MMMM Do">{this.state.weekD1}</Moment></h1>
-						<div className="buttons" style={{ "height": "6rem" }}>
+						<div className="buttons" >
 							{/* < Button onClick={this.previousWeek}>previous week</Button> */}
 							<button class="slds-button slds-button_neutral slds-float_left" onClick={this.previousWeek}>previous week</button>
 							<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextWeek}>next week</button>
 							{/* <Button onClick={this.nextWeek}>next week </Button> */}
 						</div>
 					</div>
-					<div className="day" style={{ "height": "7rem" }}>
+					<div className="day" >
 						<h1><Moment format="dddd, MMMM Do">{this.state.day}</Moment></h1>
 						<button class="slds-button slds-button_neutral slds-float_left" onClick={this.previousDay}> previous day</button>
 						<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextDay}> next day</button>

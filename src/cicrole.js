@@ -28,24 +28,6 @@ class Grid extends Component {
 		}
 	}
 
-	// Snack(props) {
-	// 	props.chips.forEach((chip, i) => {
-	// 		if ((i + 1) % 1 == 0) {
-	// 			potato.push(
-	// 				<div key={chip.id}>
-	// 					<h1 key={chip.id} ></h1>
-	// 				</div>
-	// 				// potato: props.number()
-	// 				// columns.map(row => Grid({ row })) //fix
-	// 			);
-	// 		}
-	// 		this.setState(() => ({
-	// 			potato: potato
-	// 		}));
-	// 	}
-	// }
-
-
 	render() {
 		return (
 			<DataTableCell >
@@ -107,56 +89,43 @@ class Role extends Component {
 
 
 	componentDidMount() {
-		var rows = [];
-		for (var i = 1; i <= 3; i++) {
-			rows.push(
-				{
-					row: i,
-					ic: '',
-					bo: '',
-					lno: '',
-					scribe: '',
-					or: '',
-					singleic: '',
-					exec: '',
-					ucpri: '',
-					ucsec: '',
-					ecommpri: '',
-					ecommsec: '',
-				}
-			)
-			// 	ROWS.push(
-			// 		<DataTableColumn key="subrole1" label="IC" property="ic" width="10rem"><Grid col={1} row={i} /></DataTableColumn>,
+		// var rows = [];
+		// for (var i = 1; i <= 4; i++) {
+		// 	rows.push(
+		// 		{
+		// 			row: i,
+		// 			ic: '',
+		// 			bo: '',
+		// 			lno: '',
+		// 			scribe: '',
+		// 			or: '',
+		// 			singleic: '',
+		// 			exec: '',
+		// 			ucpri: '',
+		// 			ucsec: '',
+		// 			ecommpri: '',
+		// 			ecommsec: '',
+		// 		}
+		// 	)
 
-			// 		<DataTableColumn key="subrole2" label="BO" property="bo" width="10rem"><Grid col={2} row={i} /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole3" label="LNO" property="lno" width="10rem"><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole4" label="Scribe" property="scribe" width="10rem" ><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole5" label="OR" property="or" width="10rem" ><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole6" label="IC" property="singleic" width="10rem" ><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole7" label="Ex Esc" property="exec" width="10rem"><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole8" label="PRI" property="ucpri" width="10rem" ><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole9" label="SEC" property="ucsec" width="10rem" ><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole10" label="PRI" property="ecommpri" width="10rem" ><Grid /></DataTableColumn>,
-
-			// 		<DataTableColumn key="subrole11" label="SEC" property="ecommsec" width="10rem"><Grid /></DataTableColumn>
-			// 	)
-		}
-		this.setState(() => ({
-			row: rows
-		}));
+		// }
+		// this.setState(() => ({
+		// 	row: rows
+		// }));
 
 		var grid = [];
 		for (var rows = 1; rows <= 24; rows++) {
 			grid.push(
-				`<td data-label="IC">
+				// 	<td data-label="PRI">
+				// 	<div class="slds-truncate slds-no-row-hover" title="">
+				// 	<div class="slds-form-element ">
+				// 	<div class="slds-form-element__control" >
+				// 		<p>${rows}:30</p> 
+				// 	</div>
+				// </div>
+				// </div>
+				`</td>
+				<td data-label="IC">
 				<div class="slds-truncate slds-no-row-hover" title="">
 					<div class="slds-form-element ">
 						<div class="slds-form-element__control" >
@@ -255,7 +224,8 @@ class Role extends Component {
 				</div>
 			</div>
 			</td>
-		</tr > `
+			
+		</tr >`
 			)
 		}
 		var finalgrid = grid.join("")
@@ -263,6 +233,7 @@ class Role extends Component {
 		this.setState(() => ({
 			grid: finalgrid
 		}));
+
 	}
 
 
@@ -271,9 +242,21 @@ class Role extends Component {
 		return (
 			<div >
 				<IconSettings iconPath="/icons">
-					<table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_fixed-layout">
+					{/* <table>
 						<thead>
 							<tr class="slds-line-height_reset">
+								<th class="" scope="col" colspan="1" >
+									<div class="slds-truncate">Time</div>
+								</th>
+							</tr>
+						</thead>
+					</table> */}
+					<table class="slds-table slds-table_col-bordered ">
+						<thead>
+							<tr class="slds-line-height_reset">
+								{/* <th class="" scope="col" colspan="1" >
+									<div class="slds-truncate">Time</div>
+								</th> */}
 								<th class="" scope="col" colspan="5" >
 									<div class="slds-truncate">Multi IC</div>
 								</th>
@@ -292,6 +275,9 @@ class Role extends Component {
 						</thead>
 						<thead>
 							<tr class="slds-line-height_reset">
+								{/* <th class="" scope="col">
+									<div class="slds-truncate" title="Opportunity Name">UTC</div>
+								</th> */}
 								<th class="" scope="col">
 									<div class="slds-truncate" title="Opportunity Name">IC</div>
 								</th>
@@ -327,147 +313,9 @@ class Role extends Component {
 								</th>
 							</tr>
 						</thead>
+
 						<tbody dangerouslySetInnerHTML={{ __html: this.state.grid }} />
 
-						{/* <tr class="slds-hint-parent">
-							<td data-label="IC">
-								<div class="slds-truncate" title="">
-									<div class="slds-form-element">
-										<div class="slds-form-element__control" >
-											<input type="text" id="text-input-id-1" required="" class="slds-input" value="1:1" /> 
-										</div>
-									</div>
-								</div>
-							</td>
-							<td data-label="BO">
-								<div class="slds-truncate" title="">
-									<div class="slds-form-element">
-										<div class="slds-form-element__control" >
-											<input type="text" id="text-input-id-1" required="" class="slds-input" value="2:1" /> 
-										</div>
-									</div>
-								</div>
-							</td>
-							<td data-label="LNO">
-								<div class="slds-truncate" title="">
-									<div class="slds-form-element">
-										<div class="slds-form-element__control" >
-											<input type="text" id="text-input-id-1" required="" class="slds-input" value="3:1" /> 
-										</div>
-									</div>
-			</div>
-							</td >
-			<td data-label="Scribe">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="4:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="OR">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="5:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="IC">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="6:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="Ex Esc">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="7:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="PRI">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="8:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="SEC">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="9:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="PRI">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="10:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="SEC">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" value="11:1" />
-						</div>
-					</div>
-				</div>
-			</td>
-						</tr > * /}
-
-		{/* <thead>
-							<tr class="slds-line-height_reset">
-								<th class="" scope="col" colspan="1" >
-									<div class="slds-truncate">IC</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">BO</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">SCRIBE</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">LNO</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">OR</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">IC</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">EX ESC</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">PRI</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">SEC</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">PRI</div>
-								</th>
-								<th class="" scope="col" colspan="1">
-									<div class="slds-truncate">SEC</div>
-								</th>
-							</tr>
-						</thead> */}
 					</table >
 
 					<DataTable
@@ -475,11 +323,8 @@ class Role extends Component {
 						items={this.state.row}
 						id="roles-columnBordered"
 						noRowHover
-					// assitiveText={{ selectRow: '' }}
 					>
 
-						{/* < DataTableColumn key="" label="IC" property="ic" width="10rem" ><Grid /></DataTableColumn > */}
-						{/* {ROWS} */}
 						{/* {columns} */}
 					</DataTable>
 				</IconSettings >

@@ -6,8 +6,9 @@ import './style.css'
 
 const roleoptions = [
 	{ label: 'UTC', type: 'header' },
-	{ label: 'time', value: '0:30 1:30' },
-	{ label: 'time', value: '2:30' },
+	{ label: '0:30', value: '0:30' },
+	{ label: '1:30', value: '1:30' },
+	{ label: '2:30', value: '2:30' },
 	// { type: 'divider' },
 	// { label: 'Eastern', type: 'header'},
 	// { label: 'Menu Item Six', value: 'F0' },
@@ -19,39 +20,60 @@ class Temps extends Component {
 		super(props);
 
 		this.state = {
-			selectedValue: 'time',
-			// finalgrid: ""
+			// selectedValue: 'time',
+			finalgrid: ""
 		}
 	}
 
-	handleSelectChange(value) {
-		this.setState({ selectedValue: value })
-	}
-
-	// componentDidMount() {
-	// 	var time = [];
-	// 	for (var rows = 1; rows <= 3; rows++) {
-	// 		time.push(
-
-	// 		)
-	// 	}
-	// 	var finalgrid = grid.join("")
-
-	// 	this.setState(() => ({
-	// 		grid: finalgrid
-	// 	}));
+	// handleSelectChange(value) {
+	// 	this.setState({ selectedValue: value })
 	// }
+
+	componentDidMount() {
+		var utc = [];
+		for (var time = 0; time <= 23; time++) {
+			utc.push(
+
+				`<td data-label="">
+					<div class="slds-truncate slds-no-row-hover" title="">
+						<div class="slds-form-element ">
+							<div class="slds-form-element__control" >
+								<p>${time}:30</p> 
+							</div>
+						</div>
+					</div>
+				</td>
+				</tr>`
+			)
+		}
+		var finalgrid = utc.join("")
+
+		this.setState(() => ({
+			utc: finalgrid
+		}));
+	}
 
 
 
 	render() {
 		return (
 			<div className="temps" >
-				<div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" style={{ "height": "18rem" }}>
+				<table class="slds-table slds-table_col-bordered ">
+					<thead>
+						<tr class="slds-line-height_reset">
+							<th class="" scope="col" colspan="2" >
+								<div class="slds-truncate" title="Opportunity Name">Time</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody dangerouslySetInnerHTML={{ __html: this.state.utc }} />
+				</table>
+
+				{/* <div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" style={{ "height": "18rem" }}>
 					{/* <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="Show More">
 						{/* <svg class="slds-button__icon" aria-hidden="true"></svg> 
 						{/* <span class="slds-assistive-text">Show More</span> 
-					</button>*/}
+					</button>
 					<div class="slds-dropdown slds-dropdown_left slds-dropdown_x-small">
 						<ul class="slds-dropdown__list .slds-dropdown_length-10" role="menu" aria-label="Show More">
 							<li class="slds-dropdown__header slds-truncate" title="Menu Sub Heading" role="separator" >
@@ -176,12 +198,12 @@ class Temps extends Component {
 								<a href="javascript:void(0);" role="menuitem" tabindex="-1">
 									<span class="slds-truncate" title="Menu Item One" style={{ "height": "1.6rem" }}>23:30</span>
 								</a>
-							</li>
+							</li> 
 
 
 						</ul>
-					</div>
-				</div>
+		</div>
+			</div>*/}
 				{/* <span> Temps: </span> */}
 				{/* <IconSettings iconPath="/icons" >
 					<Dropdown
