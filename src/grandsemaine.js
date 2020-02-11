@@ -75,27 +75,30 @@ class Big extends Component {
 	render() {
 		return (
 			<div >
-				<div className="grand-semaine">
-					<br /> <br />
-					<div className="week">
-						<h1><Moment format="MMMM Do">{this.state.week}</Moment> - <Moment format="MMMM Do">{this.state.weekD1}</Moment></h1>
-						<div className="buttons" >
-							{/* < Button onClick={this.previousWeek}>previous week</Button> */}
-							<button class="slds-button slds-button_neutral slds-float_left" onClick={this.previousWeek}>previous week</button>
-							<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextWeek}>next week</button>
-							{/* <Button onClick={this.nextWeek}>next week </Button> */}
-						</div>
+				<div className="week">
+
+					<div>
+						<button class="slds-button slds-button_neutral slds-float_left" onClick={this.previousWeek}>previous week</button>
+						<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextWeek}>next week</button>
 					</div>
-					<div className="day" >
-						<h1><Moment format="dddd, MMMM Do">{this.state.day}</Moment></h1>
+					<h1>
+						<Moment format="MMMM Do">{this.state.week}</Moment> - <Moment format="MMMM Do">{this.state.weekD1}</Moment>
+					</h1>
+				</div>
+				<br />
+				<div className="day">
+					<div>
 						<button class="slds-button slds-button_neutral slds-float_left" onClick={this.previousDay}> previous day</button>
 						<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextDay}> next day</button>
-
-						{/* < Button onClick={this.previousDay}>Previous</Button>
-						< Button onClick={this.nextDay}>Next</Button> */}
 					</div>
+					<h1>
+						<Moment format="dddd, MMMM Do">{this.state.day}</Moment>
+					</h1>
+					{/* <button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextDay}> next day</button> */}
 				</div>
-			</div>
+
+			</div >
+
 		);
 	}
 }

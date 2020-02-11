@@ -3,6 +3,8 @@ import { Input } from '@salesforce/design-system-react';
 import { DataTable, DataTableRowActions, DataTableColumn, DataTableCell } from '@salesforce/design-system-react'
 import { IconSettings } from '@salesforce/design-system-react';
 import './style.css';
+const moment = require("moment")
+
 
 
 // const Grid = () => (
@@ -114,17 +116,17 @@ class Role extends Component {
 		// }));
 
 		var grid = [];
-		for (var rows = 1; rows <= 24; rows++) {
+		for (var rows = 1, time = moment("00:30", "HH:mm"); rows <= 24; rows++ , time = moment(time).add(1, "h")) {
 			grid.push(
-				// 	<td data-label="PRI">
-				// 	<div class="slds-truncate slds-no-row-hover" title="">
-				// 	<div class="slds-form-element ">
-				// 	<div class="slds-form-element__control" >
-				// 		<p>${rows}:30</p> 
-				// 	</div>
-				// </div>
-				// </div>
-				`</td>
+				`<td data-label="PRI">
+					<div class="slds-truncate slds-no-row-hover" title="">
+					<div class="slds-form-element ">
+					<div class="slds-form-element__control" >
+						<p>${time.format("HH:mm")}</p> 
+					</div>
+				</div>
+				</div>
+				</td>
 				<td data-label="IC">
 				<div class="slds-truncate slds-no-row-hover" title="">
 					<div class="slds-form-element ">
@@ -254,9 +256,9 @@ class Role extends Component {
 					<table class="slds-table slds-table_col-bordered ">
 						<thead>
 							<tr class="slds-line-height_reset">
-								{/* <th class="" scope="col" colspan="1" >
+								<th class="" scope="col" colspan="1" >
 									<div class="slds-truncate">Time</div>
-								</th> */}
+								</th>
 								<th class="" scope="col" colspan="5" >
 									<div class="slds-truncate">Multi IC</div>
 								</th>
@@ -275,9 +277,9 @@ class Role extends Component {
 						</thead>
 						<thead>
 							<tr class="slds-line-height_reset">
-								{/* <th class="" scope="col">
+								<th class="" scope="col">
 									<div class="slds-truncate" title="Opportunity Name">UTC</div>
-								</th> */}
+								</th>
 								<th class="" scope="col">
 									<div class="slds-truncate" title="Opportunity Name">IC</div>
 								</th>
