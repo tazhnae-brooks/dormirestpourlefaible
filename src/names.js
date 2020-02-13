@@ -25,7 +25,7 @@ class Names extends Component {
                         iconName="down"
                         iconPosition="right"
                         label="Team"
-                        width="large"
+                        width="small"
                         onSelect={(selected) => {
                             this.handleSelectChange(selected.value);
                         }}

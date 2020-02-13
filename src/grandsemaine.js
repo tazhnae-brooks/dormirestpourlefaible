@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-// import moment from 'moment';
 //import { Button } from '@salesforce/design-system-react';
-import { IconSettings } from '@salesforce/design-system-react';
 import './style.css';
 const moment = require("moment")
 
@@ -18,8 +16,6 @@ class Big extends Component {
 			day1: undefined,
 		};
 		this.dayOffset = 0
-		// this.weekOffset = 0
-		// this.weekD1Offset = 0
 		this.previousDay = this.previousDay.bind(this);
 		this.nextDay = this.nextDay.bind(this);
 		//week
@@ -28,38 +24,30 @@ class Big extends Component {
 	}
 
 	componentDidMount() {
-		// console.log(
-		// 	moment().startOf('isoweek').format())
 		this.setState(() => ({
 			day: moment().format(),
-			// <Moment>{new Date()}</Moment>,
-			week: moment().startOf('isoweek').format(''), //{moment().endOf('isoweek').add(6, 'days').format()}
+			week: moment().startOf('isoweek').format(''),
 			weekD1: moment().endOf('isoweek').format(''),
-			// day: moment()
-			// {moment().day(7)} 
+
 
 		}));
 	}
 	//month
 	previousDay() {
-		// this.monthOffset--
 		this.setState(() => ({
 			day: moment(this.state.day).add(-1, 'days').toDate(),
-			// month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
 		}));
 	}
 	nextDay() {
-		// this.monthOffset++
 		this.setState(() => ({
 			day: moment(this.state.day).add(1, 'days').toDate(),
-			// month: <Moment add={{ months: this.monthOffset }}>{this.state.month}</Moment>,
 		}));
 	}
 
 	//week
 	previousWeek() {
 		this.setState(() => ({
-			week: moment(this.state.week).add(-7, 'days').toDate(), //<Moment add={{ days: 10 }}>{this.state.week}</Moment>,
+			week: moment(this.state.week).add(-7, 'days').toDate(),
 			weekD1: moment(this.state.weekD1).add(-7, 'days').toDate(),
 		}));
 	}
@@ -94,7 +82,6 @@ class Big extends Component {
 					<h1>
 						<Moment format="dddd, MMMM Do">{this.state.day}</Moment>
 					</h1>
-					{/* <button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextDay}> next day</button> */}
 				</div>
 
 			</div >
