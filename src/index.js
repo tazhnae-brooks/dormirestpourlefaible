@@ -7,28 +7,38 @@ import Big from './grandsemaine.js';
 import Names from './names.js';
 // import { useMediaQuery } from 'react-responsive'
 
+// Breakpoints = () => {
+//     const isDesktop = useMediaQuery({
+//         query: '(min-device-width: 2124px )'
+//     })
 
-// const { Pool, Client } = require('pg')
-// const pool = new Pool({
-//     connectionString: 'postgres://ubtlfhpbj38tfn:p5100a09cb4d89b2b1b580c4e46dc8544b8d35e446433e4ca703aacdfc9542711@ec2-3-84-65-54.compute-1.amazonaws.com:5432/d3pmrrgfd42jnl'
-// })
-// pool.query('SELECT * FROM test', (err, res) => {
-//     console.log(err, res)
-//     pool.end()
-// })
+//     const isLaptop = useMediaQuery({
+//         query: '(min-device-width: 1224px )'
+//     })
+// }
 
 
 class Index extends Component {
+    state = {
+        data: null
+    };
 
-    // Breakpoints = () => {
-    //     const isDesktop = useMediaQuery({
-    //         query: '(min-device-width: 2124px )'
-    //     })
+    componentDidMount() {
+        // Call our fetch function below once the component mounts
+        this.callBackendAPI()
+            .then(res => this.setState({ data: res.express }))
+            .catch(err => console.log(err));
+    }
+    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
+    callBackendAPI = async () => {
+        const response = await fetch('/express_backend');
+        const body = await response.json();
 
-    //     const isLaptop = useMediaQuery({
-    //         query: '(min-device-width: 1224px )'
-    //     })
-    // }
+        if (response.status !== 200) {
+            throw Error(body.message)
+        }
+        return body;
+    };
 
     render() {
         return (
@@ -50,7 +60,8 @@ class Index extends Component {
                 </div>
                 <br />
                 <div><Role /></div>
-            </div>
+                <p>{this.state.data}</p>
+            </div >
 
         )
     }

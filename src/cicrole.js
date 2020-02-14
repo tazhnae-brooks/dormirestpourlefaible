@@ -145,7 +145,7 @@ class Role extends Component {
 		return (
 			<div >
 				<IconSettings iconPath="/icons">
-					<table class="slds-table slds-table_col-bordered ">
+					<table class="slds-table slds-table_col-bordered slds-table_cell-buffer">
 						<thead>
 							<tr class="slds-line-height_reset">
 								<th class="" scope="col" colspan="1" >
