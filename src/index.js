@@ -20,25 +20,34 @@ import Names from './names.js';
 
 class Index extends Component {
     state = {
-        data: null
+        data: null,
     };
 
     componentDidMount() {
-        // Call our fetch function below once the component mounts
-        this.callBackendAPI()
-            .then(res => this.setState({ data: res.express }))
-            .catch(err => console.log(err));
-    }
-    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
-    callBackendAPI = async () => {
-        const response = await fetch('/express_backend');
-        const body = await response.json();
+        //     // Call our fetch function below once the component mounts
+        //     this.callBackendAPI()
+        //         .then(res => this.setState({ data: res.express }))
+        //         .catch(err => console.log(err));
+        // }
+        // // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
+        // callBackendAPI = async () => {
+        //     const response = await fetch('/express_backend');
+        //     const body = await response.json();
 
-        if (response.status !== 200) {
-            throw Error(body.message)
-        }
-        return body;
-    };
+        //     if (response.status !== 200) {
+        //         throw Error(body.message)
+        //     }
+        //     return body;
+        fetch('/express_backend')
+            .then(res => {
+                console.log(res);
+                return res.send()
+            })
+            .then(data => {
+                console.log(data);
+                this.setState({ data })
+            });
+    }
 
     render() {
         return (
@@ -61,6 +70,8 @@ class Index extends Component {
                 <br />
                 <div><Role /></div>
                 <p>{this.state.data}</p>
+                {/* <p>{this.state.snack}</p> */}
+
             </div >
 
         )
