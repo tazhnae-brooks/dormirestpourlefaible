@@ -10,8 +10,17 @@ class Names extends Component {
         }
     }
 
-    handleSelectChange(value) {
-        this.setState({ selectedInput: value })
+    async handleSelectChange(value) {
+        // this.setState({ selectedInput: value })
+
+        // console.log(value);
+        // const response = await fetch(`/query?name=${value}`);
+        // console.log(body);
+        // console.log(response.body);
+        // if (response.status !== 200) {
+        //     // throw Error(body.message)
+        // }
+        // return 1;
     }
 
 
@@ -31,7 +40,7 @@ class Names extends Component {
                         }}
                         options={[
                             { label: 'AMER', type: 'header' },
-                            { label: 'tazhnae', value: 'TB' },
+                            { label: 'tazhnae', value: 'tazhnae' },
                             { label: 'Menu Item Two', value: 'B0' },
                             { label: 'Menu Item Three', value: 'C0' },
                             { type: 'divider' },
