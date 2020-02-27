@@ -10,19 +10,23 @@ class Names extends Component {
         }
     }
 
-    async handleSelectChange(value) {
-        // this.setState({ selectedInput: value })
-
-        // console.log(value);
-        // const response = await fetch(`/query?name=${value}`);
-        // console.log(body);
-        // console.log(response.body);
-        // if (response.status !== 200) {
-        //     // throw Error(body.message)
-        // }
-        // return 1;
+    handleNameData(data) {
+        let name = data.name
+        let grid = data.grid
+        grid.forEach(gridLocation => {
+            let matchingElement = document.querySelector(`[data-location='${gridLocation}']`)
+            matchingElement.value = name
+        })
     }
 
+    async handleSelectChange(value) {
+        const response = await fetch(`/query?name=${value}`);
+        const body = await response.json();
+        if (response.status !== 200) {
+            throw Error(body.message)
+        }
+        this.handleNameData(body.data[0]);
+    }
 
     render() {
         return (
@@ -41,8 +45,8 @@ class Names extends Component {
                         options={[
                             { label: 'AMER', type: 'header' },
                             { label: 'tazhnae', value: 'tazhnae' },
-                            { label: 'Menu Item Two', value: 'B0' },
-                            { label: 'Menu Item Three', value: 'C0' },
+                            { label: 'jane', value: 'jane' },
+                            { label: 'general kenobi', value: 'general kenobi' },
                             { type: 'divider' },
                             { label: 'EMEA', type: 'header' },
                             { label: 'Menu Item Four', value: 'D0' },
@@ -58,7 +62,6 @@ class Names extends Component {
             </div>
         )
     }
-
 }
 
 export default Names;

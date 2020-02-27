@@ -32,7 +32,7 @@ class Role extends Component {
 				<div class="slds-truncate slds-no-row-hover" title="">
 					<div class="slds-form-element ">
 						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="1:${rows}" /> 
+							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value=" "/> 
 						</div>
 					</div>
 				</div>
@@ -41,7 +41,7 @@ class Role extends Component {
 				<div class="slds-truncate" title="">
 					<div class="slds-form-element">
 						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="2:${rows}" /> 
+							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="2:${rows}" value=" " /> 
 						</div>
 					</div>
 				</div>
@@ -50,7 +50,7 @@ class Role extends Component {
 				<div class="slds-truncate" title="">
 					<div class="slds-form-element">
 						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="3:${rows}" /> 
+							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="3:${rows}" value=" " /> 
 						</div>
 					</div>
 				</div>
@@ -59,7 +59,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="4:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="4:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
@@ -68,7 +68,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="5:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="5:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
@@ -77,7 +77,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="6:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="6:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
@@ -86,7 +86,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="7:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="7:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
@@ -95,7 +95,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="8:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="8:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
@@ -104,7 +104,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="9:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="9:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
@@ -113,7 +113,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="10:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="10:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
@@ -122,7 +122,7 @@ class Role extends Component {
 			<div class="slds-truncate" title="">
 				<div class="slds-form-element">
 					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value="11:${rows}" />
+						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="11:${rows}" value=" " />
 					</div>
 				</div>
 			</div>
