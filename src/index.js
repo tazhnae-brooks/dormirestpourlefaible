@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Role from './cicrole.js';
-// import Temps from './temps.js';
+import Temps from './temps.js';
 import Tiny from './petitecalendrier.js';
 import Big from './grandsemaine.js';
 import Names from './names.js';
@@ -44,16 +44,17 @@ class Index extends Component {
             <div>
                 <div class="slds-grid slds-wrap" >
                     {/* {isLaptop}  */}
-                    <div class="slds-col slds-size_2-of-12" >
+                    <div class="slds-col slds-size_1-of-12" >
                         {/* {isLaptop && <Tiny />} */}
                         <Tiny />
                     </div>
                     <div class="slds-col slds-size_1-of-12" ><Names /></div>
+                    <div class="slds-col slds-size_1-of-12" ><Temps /></div>
+
                 </div>
                 <div class="slds-grid slds-wrap" >
                     <div class="slds-col slds-size_4-of-12" ></div>
                     <div class="slds-col slds-size_4-of-12" ><Big /></div>
-                    {/* <div className="date"> <Big /> </div> */}
                     <div class="slds-col slds-size_4-of-12" ></div>
                 </div>
                 <br />
