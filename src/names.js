@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Dropdown, IconSettings } from '@salesforce/design-system-react'
 import './style.css';
+const moment = require("moment")
+
 
 class Names extends Component {
     constructor(props) {
@@ -12,6 +14,7 @@ class Names extends Component {
 
     handleNameData(data) {
         let name = data.name
+        console.log(data);
         let grid = data.grid
         grid.forEach(gridLocation => {
             let matchingElement = document.querySelector(`[data-location='${gridLocation}']`)
@@ -20,7 +23,10 @@ class Names extends Component {
     }
 
     async handleSelectChange(value) {
-        const response = await fetch(`/query?name=${value}`);
+        let date = document.getElementById("date").getAttribute("data-day")
+        let formatDate = moment(date).format("YYYY-MM-DD");
+        console.log(formatDate);
+        const response = await fetch(`/query?name=${value}&date=${formatDate}`);
         const body = await response.json();
         if (response.status !== 200) {
             throw Error(body.message)

@@ -80,7 +80,7 @@ class Big extends Component {
 						<button class="slds-button slds-button_neutral slds-float_right" onClick={this.nextDay}> next day</button>
 					</div>
 					<h1>
-						<Moment format="dddd, MMMM Do">{this.state.day}</Moment>
+						<Moment format="dddd, MMMM Do" data-day={this.state.day} id='date'>{this.state.day}</Moment>
 					</h1>
 				</div>
 

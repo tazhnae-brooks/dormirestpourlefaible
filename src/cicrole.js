@@ -166,6 +166,8 @@ class Role extends Component {
 
 							</tr>
 						</thead>
+
+						{/* inner table header */}
 						<thead>
 							<tr class="slds-line-height_reset" >
 								<th class="" scope="col">
