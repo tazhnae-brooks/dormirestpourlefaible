@@ -45,6 +45,7 @@ class Names extends Component {
                         iconPosition="right"
                         label="Team"
                         width="small"
+                        // submenu_right={true}
                         onSelect={(selected) => {
                             this.handleSelectChange(selected.value);
                         }}
@@ -69,5 +70,22 @@ class Names extends Component {
         )
     }
 }
+
+// class NameSave extends Component {
+//     constructor(props) {
+//         super(props)
+//     }
+
+
+
+
+//     render() {
+//         return (
+//             <div>
+//                 <button class="slds-button slds-button_neutral">Save</button>
+//             </div>
+//         )
+//     }
+// }
 
 export default Names;
