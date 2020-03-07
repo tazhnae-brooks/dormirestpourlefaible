@@ -70,22 +70,3 @@ class Temps extends Component {
 }
 
 export default Temps;
-
-/*<div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" style={{ "height": "18rem" }}>
-					{/* <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="Show More">
-						{/* <svg class="slds-button__icon" aria-hidden="true"></svg>
-						{/* <span class="slds-assistive-text">Show More</span>
-					</button>
-					<div class="slds-dropdown slds-dropdown_left slds-dropdown_x-small">
-						<ul class="slds-dropdown__list .slds-dropdown_length-10" role="menu" aria-label="Show More">
-							<li class="slds-dropdown__header slds-truncate" title="Menu Sub Heading" role="separator" >
-								<span style={{ "height": "1.6rem" }}>UTC</span>
-							</li>
-							<li class="slds-dropdown__item" role="presentation">
-								<a href="javascript:void(0);" role="menuitem" tabindex="0">
-									<span class="slds-truncate" title="Menu Item One" style={{ "height": "1.6rem" }}>0:30 </span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>*/

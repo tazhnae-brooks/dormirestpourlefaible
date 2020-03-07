@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Dropdown, IconSettings } from '@salesforce/design-system-react'
 import './style.css';
+import $ from 'jquery';
 const moment = require("moment")
+
 
 
 class Names extends Component {
@@ -34,39 +36,104 @@ class Names extends Component {
         this.handleNameData(body.data[0]);
     }
 
+    save() {
+        let date = document.getElementById("date").getAttribute("data-day")
+        let formatDate = moment(date).format("YYYY-MM-DD");
+
+        let saveData = {
+            "date": formatDate,
+            "data": []
+        }
+
+        // for each box, if it has a value, get the name and location and put into saveData
+
+        // finding empty boxes
+        // $(".slds-input").each(function () {
+        //     if ($(this).value != "") {
+        //         console.log("not empty!")
+
+        //         //finding name and pushing into saveData
+        //         for (let value in saveData.data) {
+        //             if (saveData.data.hasOwnProperty(value)) {
+        //                 let name = {};
+        //                 name[value] = saveData.data[value]
+        //                 saveData.push(name)
+        //             }
+        //         }
+        //         console.log(saveData)
+
+
+        //     }
+        // })
+
+
+        //garbage
+        //     $(".slds-input").each(function () {
+        //         if ($(this).value != "") {
+        //             console.log("not empty!")
+
+        //             saveData.data.forEach(element => {
+        //                 let name = $(this).value
+        //                 let gridLocation = $(this).attr("data-location")
+        //                 if (element.name == name) {
+        //                     console.log("name == name")
+        //                     element.grid.push(gridLocation)
+        //                 } else {
+        //                     console.log("first time name is seen!")
+        //                     saveData.data.push({
+        //                         "name": name,
+        //                         "grid": [gridLocation]
+        //                     })
+        //                 }
+        //             })
+        //         }
+        //     })
+        //     console.log(saveData)
+
+        //     // batch together and send to DB
+
+    }
+
+
     render() {
         return (
-            <div className="namedp">
-                <IconSettings>
-                    <Dropdown
-                        align="right"
-                        iconCategory="utility"
-                        iconName="down"
-                        iconPosition="right"
-                        label="Team"
-                        width="small"
-                        // submenu_right={true}
-                        onSelect={(selected) => {
-                            this.handleSelectChange(selected.value);
-                        }}
-                        options={[
-                            { label: 'AMER', type: 'header' },
-                            { label: 'tazhnae', value: 'tazhnae' },
-                            { label: 'jane', value: 'jane' },
-                            { label: 'general kenobi', value: 'general kenobi' },
-                            { type: 'divider' },
-                            { label: 'EMEA', type: 'header' },
-                            { label: 'Menu Item Four', value: 'D0' },
-                            { label: 'Menu Item Five', value: 'E0' },
-                            { label: 'Menu Item Six', value: 'F0' },
-                            { type: 'divider' },
-                            { label: 'APAC', type: 'header' },
-                            { label: 'Menu Item Seven', value: 'G0' },
-                        ]}
-                    />
-                    {this.state.selectedInput}
-                </IconSettings>
-            </div>
+            <div>
+
+                <div className="namedp">
+                    <IconSettings>
+                        <Dropdown
+                            align="right"
+                            iconCategory="utility"
+                            iconName="down"
+                            iconPosition="right"
+                            label="Team"
+                            width="small"
+                            // submenu_right={true}
+                            onSelect={(selected) => {
+                                this.handleSelectChange(selected.value);
+                            }}
+                            options={[
+                                { label: 'AMER', type: 'header' },
+                                { label: 'tazhnae', value: 'tazhnae' },
+                                { label: 'jane', value: 'jane' },
+                                { label: 'general kenobi', value: 'general kenobi' },
+                                { type: 'divider' },
+                                { label: 'EMEA', type: 'header' },
+                                { label: 'Menu Item Four', value: 'D0' },
+                                { label: 'Menu Item Five', value: 'E0' },
+                                { label: 'Menu Item Six', value: 'F0' },
+                                { type: 'divider' },
+                                { label: 'APAC', type: 'header' },
+                                { label: 'Menu Item Seven', value: 'G0' },
+                            ]}
+                        />
+                        {this.state.selectedInput}
+                    </IconSettings>
+                </div>
+                <div>
+                    <button class="slds-button slds-button_neutral" onClick={this.save}>Save</button>
+                </div>
+            </div >
         )
     }
 }
