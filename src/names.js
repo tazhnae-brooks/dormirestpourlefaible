@@ -44,54 +44,6 @@ class Names extends Component {
             "date": formatDate,
             "data": []
         }
-
-        // for each box, if it has a value, get the name and location and put into saveData
-
-        // finding empty boxes
-        // $(".slds-input").each(function () {
-        //     if ($(this).value != "") {
-        //         console.log("not empty!")
-
-        //         //finding name and pushing into saveData
-        //         for (let value in saveData.data) {
-        //             if (saveData.data.hasOwnProperty(value)) {
-        //                 let name = {};
-        //                 name[value] = saveData.data[value]
-        //                 saveData.push(name)
-        //             }
-        //         }
-        //         console.log(saveData)
-
-
-        //     }
-        // })
-
-
-        //garbage
-        //     $(".slds-input").each(function () {
-        //         if ($(this).value != "") {
-        //             console.log("not empty!")
-
-        //             saveData.data.forEach(element => {
-        //                 let name = $(this).value
-        //                 let gridLocation = $(this).attr("data-location")
-        //                 if (element.name == name) {
-        //                     console.log("name == name")
-        //                     element.grid.push(gridLocation)
-        //                 } else {
-        //                     console.log("first time name is seen!")
-        //                     saveData.data.push({
-        //                         "name": name,
-        //                         "grid": [gridLocation]
-        //                     })
-        //                 }
-        //             })
-        //         }
-        //     })
-        //     console.log(saveData)
-
-        //     // batch together and send to DB
-
     }
 
 
@@ -137,22 +89,5 @@ class Names extends Component {
         )
     }
 }
-
-// class NameSave extends Component {
-//     constructor(props) {
-//         super(props)
-//     }
-
-
-
-
-//     render() {
-//         return (
-//             <div>
-//                 <button class="slds-button slds-button_neutral">Save</button>
-//             </div>
-//         )
-//     }
-// }
 
 export default Names;

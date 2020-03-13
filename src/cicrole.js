@@ -1,219 +1,109 @@
 import React, { Component } from 'react';
-import { IconSettings } from '@salesforce/design-system-react';
+import { IconSettings, DataTable, DataTableColumn, DataTableCell, Input } from '@salesforce/design-system-react';
 import './style.css';
+import update from 'react-addons-update';
 const moment = require("moment")
 
+// make an input cell component
+const CustomDataTableCell = ({ children }) => (
+	<DataTableCell>
+		<Input value={children}></Input>
+	</DataTableCell>
+);
 
-class Role extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			row: [],
-			finalgrid: ""
-		};
-		this.displayName = 'roles'
-	}
+// idk what this line does but it breaks if you remove it so dont touch it 
+CustomDataTableCell.displayName = DataTableCell.displayName;
 
+// define the columns
+// key = anything, as long as it is unique
+// label = what you want to show on the top bar
+// property = the value used to match from the items (see items in state)
+const columns = [
+	<DataTableColumn key="time" label="time" property="time">
+	</DataTableColumn>,
+	<DataTableColumn key="1" label="Some" property="1">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="2" label="Data" property="2">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="3" label="Values" property="3">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="4" label="apple" property="4">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="5" label="banana" property="5">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="6" label="put" property="6">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="7" label="column" property="7">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="8" label="names" property="8">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="9" label="in these" property="9">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="10" label="boxes" property="10">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="11" label="pear" property="11">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+	<DataTableColumn key="12" label="jellyfish" property="12">
+		<CustomDataTableCell />
+	</DataTableColumn>,
+];
 
-	componentDidMount() {
-		var grid = [];
+class Role extends React.Component {
+	static displayName = 'Grid';
+
+	// there are 2 values that are pretty obvious, row and time
+	// the rest (1, 2, 3, etc..) correspond to the COLUMN
+	// each object in this.items correspond to a ROW
+	// each ROW has 12 COLUMNS
+	// we're now going by 'row':'col', will need DB changes but dont worry about it yet
+	state = {
+		items: [],
+	};
+
+	// do the for loop to get all the rows down where they supposed to be
+	componentWillMount() {
 		for (var rows = 1, time = moment("00:30", "HH:mm"); rows <= 24; rows++ , time = moment(time).add(1, "h")) {
-			grid.push(
-				`<td data-label="PRI">
-					<div class="slds-truncate slds-no-row-hover" title="">
-					<div class="slds-form-element ">
-					<div class="slds-form-element__control" >
-						<p>${time.format("HH:mm")}</p> 
-					</div>
-				</div>
-				</div>
-				</td>
-				<td data-label="IC">
-				<div class="slds-truncate slds-no-row-hover" title="">
-					<div class="slds-form-element ">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="1:${rows}" value=""/> 
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="BO">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="2:${rows}" value="" /> 
-						</div>
-					</div>
-				</div>
-			</td>
-			<td data-label="LNO">
-				<div class="slds-truncate" title="">
-					<div class="slds-form-element">
-						<div class="slds-form-element__control" >
-							<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="3:${rows}" value="" /> 
-						</div>
-					</div>
-				</div>
-			</td >
-			<td data-label="Scribe">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="4:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			<td data-label="OR">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="5:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			<td data-label="IC">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="6:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			<td data-label="Ex Esc">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="7:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			<td data-label="PRI">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="8:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			<td data-label="SEC">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="9:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			<td data-label="PRI">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="10:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			<td data-label="SEC">
-			<div class="slds-truncate" title="">
-				<div class="slds-form-element">
-					<div class="slds-form-element__control" >
-						<input type="text" id="text-input-id-1" required="" class="slds-input" data-location="11:${rows}" value="" />
-					</div>
-				</div>
-			</div>
-			</td>
-			
-		</tr >`
+			this.state.items.push(
+				{
+					"row": rows,
+					"time": time.format("HH:mm"),
+					"1": "",
+					"2": "",
+					"3": "",
+					"4": "",
+					"5": "",
+					"6": "",
+					"7": "",
+					"8": "",
+					"9": "",
+					"10": "",
+					"11": "",
+					"12": "",
+				}
 			)
 		}
-		var finalgrid = grid.join("")
-
-		this.setState(() => ({
-			grid: finalgrid
-		}));
-
 	}
-
-
 
 	render() {
 		return (
-			<div >
-				<IconSettings iconPath="/icons">
-					<table class="slds-table slds-table_col-bordered slds-table_cell-buffer">
-						<thead>
-							<tr class="slds-line-height_reset">
-								<th class="" scope="col" colspan="1" >
-									<div class="slds-truncate">Time</div>
-								</th>
-								<th class="" scope="col" colspan="5" >
-									<div class="slds-truncate">Multi IC</div>
-								</th>
-								<th class="" scope="col" colspan="2">
-									<div class="slds-truncate">Single IC</div>
-								</th>
-								<th class="" scope="col" colspan="2">
-									<div class="slds-truncate">UC</div>
-								</th>
-								<th class="" scope="col" colspan="2">
-									<div class="slds-truncate">EComm</div>
-								</th>
-
-							</tr>
-						</thead>
-
-						{/* inner table header */}
-						<thead>
-							<tr class="slds-line-height_reset" >
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Opportunity Name">UTC</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Opportunity Name">IC</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Account Name">BO</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Close Date">LNO</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Stage">Scribe</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Confidence">OR</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Amount">IC</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Contact">Ex Esc</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Contact">PRI</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Contact">SEC</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Contact">PRI</div>
-								</th>
-								<th class="" scope="col">
-									<div class="slds-truncate" title="Contact">SEC</div>
-								</th>
-							</tr>
-						</thead>
-
-						<tbody dangerouslySetInnerHTML={{ __html: this.state.grid }} />
-
-					</table >
-				</IconSettings >
-			</div >
+			<IconSettings iconPath="/assets/icons">
+				<div style={{ overflow: 'auto' }}>
+					<DataTable columnBordered items={this.state.items} id="Grid-columnBordered" noRowHover>
+						{columns}
+					</DataTable>
+				</div>
+			</IconSettings>
 		);
 	}
 }
