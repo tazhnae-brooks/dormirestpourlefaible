@@ -48,7 +48,7 @@ class Index extends Component {
                         {/* {isLaptop && <Tiny />} */}
                         <Tiny />
                     </div>
-                    <div class="slds-col slds-size_1-of-12" ><Names /></div>
+                    {/* <div class="slds-col slds-size_1-of-12" ><Names /></div> */}
                     <div class="slds-col slds-size_1-of-12" ><Temps /></div>
 
                 </div>

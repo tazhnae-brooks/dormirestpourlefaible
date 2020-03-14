@@ -1,12 +1,98 @@
 import React, { Component } from 'react';
 import { IconSettings, DataTable, DataTableColumn, DataTableCell, Input } from '@salesforce/design-system-react';
+import { Dropdown } from '@salesforce/design-system-react'
 import './style.css';
-import update from 'react-addons-update';
 const moment = require("moment")
 
+class Names extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			selectedInput: ''
+		}
+	}
+
+	// handleNameData(data) {
+	// 	let name = data.name
+	// 	console.log(data);
+	// 	let grid = data.grid
+	// 	grid.forEach(gridLocation => {
+	// 		let matchingElement = document.querySelector(`[data-location='${gridLocation}']`)
+	// 		matchingElement.value = name
+	// 	})
+	// }
+
+	// async handleSelectChange(value) {
+	// 	let date = document.getElementById("date").getAttribute("data-day")
+	// 	let formatDate = moment(date).format("YYYY-MM-DD");
+	// 	console.log(formatDate);
+	// 	const response = await fetch(`/query?name=${value}&date=${formatDate}`);
+	// 	const body = await response.json();
+	// 	if (response.status !== 200) {
+	// 		throw Error(body.message)
+	// 	}
+	// 	this.handleNameData(body.data[0]);
+	// }
+
+	save() {
+		let date = document.getElementById("date").getAttribute("data-day")
+		let formatDate = moment(date).format("YYYY-MM-DD");
+
+		let saveData = {
+			"date": formatDate,
+			"data": []
+		}
+	}
+
+
+	render() {
+		return (
+			<div>
+				<div className="namedp">
+					<IconSettings>
+						<Dropdown
+							align="right"
+							iconCategory="utility"
+							iconName="down"
+							iconPosition="right"
+							label="Team"
+							width="small"
+							// submenu_right={true}
+							//onSelect={(selected) => {
+							//	this.handleSelectChange(selected.value);
+							//}}
+							onSelect={(selected) => {
+								this.props.changed(selected.value);
+							}}
+							options={[
+								{ label: 'AMER', type: 'header' },
+								{ label: 'tazhnae', value: 'tazhnae' },
+								{ label: 'jane', value: 'jane' },
+								{ label: 'general kenobi', value: 'general kenobi' },
+								{ type: 'divider' },
+								{ label: 'EMEA', type: 'header' },
+								{ label: 'Menu Item Four', value: 'D0' },
+								{ label: 'Menu Item Five', value: 'E0' },
+								{ label: 'Menu Item Six', value: 'F0' },
+								{ type: 'divider' },
+								{ label: 'APAC', type: 'header' },
+								{ label: 'Menu Item Seven', value: 'G0' },
+							]}
+						/>
+						{this.state.selectedInput}
+					</IconSettings>
+				</div>
+				<div>
+					<button class="slds-button slds-button_neutral" onClick={this.save}>Save</button>
+				</div>
+			</div>
+		)
+	}
+}
+
 // make an input cell component
-const CustomDataTableCell = ({ children }) => (
-	<DataTableCell>
+const CustomDataTableCell = ({ children, ...props }) => (
+	<DataTableCell {...props}>
 		<Input value={children}></Input>
 	</DataTableCell>
 );
@@ -62,14 +148,17 @@ const columns = [
 class Role extends React.Component {
 	static displayName = 'Grid';
 
-	// there are 2 values that are pretty obvious, row and time
-	// the rest (1, 2, 3, etc..) correspond to the COLUMN
-	// each object in this.items correspond to a ROW
-	// each ROW has 12 COLUMNS
-	// we're now going by 'row':'col', will need DB changes but dont worry about it yet
-	state = {
-		items: [],
-	};
+	constructor(props) {
+		super(props)
+		// there are 2 values that are pretty obvious, row and time
+		// the rest (1, 2, 3, etc..) correspond to the COLUMN
+		// each object in this.items correspond to a ROW
+		// each ROW has 12 COLUMNS
+		// we're now going by 'row':'col', will need DB changes but dont worry about it yet
+		this.state = {
+			items: [],
+		};
+	}
 
 	// do the for loop to get all the rows down where they supposed to be
 	componentWillMount() {
@@ -78,26 +167,50 @@ class Role extends React.Component {
 				{
 					"row": rows,
 					"time": time.format("HH:mm"),
-					"1": "",
-					"2": "",
-					"3": "",
-					"4": "",
-					"5": "",
-					"6": "",
-					"7": "",
-					"8": "",
-					"9": "",
-					"10": "",
-					"11": "",
-					"12": "",
+					"1": null,
+					"2": null,
+					"3": null,
+					"4": null,
+					"5": null,
+					"6": null,
+					"7": null,
+					"8": null,
+					"9": null,
+					"10": null,
+					"11": null,
+					"12": null,
 				}
 			)
 		}
 	}
 
+	async handleSelectChange(value) {
+		let date = document.getElementById("date").getAttribute("data-day")
+		let formatDate = moment(date).format("YYYY-MM-DD");
+		console.log(formatDate);
+		const response = await fetch(`/query?name=${value}&date=${formatDate}`);
+		const body = await response.json();
+		if (response.status !== 200) {
+			throw Error(body.message)
+		}
+		this.handleNameData(body.data[0]);
+	}
+
+	handleNameData(data) {
+		console.log(data);
+		let name = data.name
+		let grid = data.grid // 1:3
+		// put name inside respective row and col
+		this.setState({
+
+		})
+
+	}
+
 	render() {
 		return (
 			<IconSettings iconPath="/assets/icons">
+				<Names changed={this.handleSelectChange}></Names>
 				<div style={{ overflow: 'auto' }}>
 					<DataTable columnBordered items={this.state.items} id="Grid-columnBordered" noRowHover>
 						{columns}
